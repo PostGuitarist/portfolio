@@ -5,8 +5,10 @@ type Props = Resume;
 
 const { title, techs, link, year, hasYear } = Astro.props;
 
-const formatTechs = (values: string[]) => {
-  if (values) {
+const formatTechs = (values: string | string[] | undefined) => {
+  if (Array.isArray(values)) {
+    return values.join(" • ");
+  } else if (values) {
     return values.toString().replaceAll(",", " • ");
   }
   return '';
