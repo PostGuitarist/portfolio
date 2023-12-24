@@ -3,5 +3,4 @@ export type Resume = {
   techs?: string;
   link?: string;
   year?: string;
-  hasYear?: boolean;
 };
