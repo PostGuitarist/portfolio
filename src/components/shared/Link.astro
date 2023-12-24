@@ -4,7 +4,7 @@ import type { HTMLAttributes } from "astro/types";
 type Props = HTMLAttributes<"a"> & {
   label: string;
   isUnderline?: boolean;
-  iconName: string;
+  iconName?: string;
 };
 
 const { label, isUnderline, iconName, ...props } = Astro.props;
@@ -22,6 +22,6 @@ const { label, isUnderline, iconName, ...props } = Astro.props;
   
 >
   <i class=`fa-brands fa-${iconName} fa-2xl`></i>
-  <!-- {label} -->
+  {label}
   <span class="sr-only">{label} link</span>
 </a>
