@@ -1,0 +1,7 @@
+export default function removeTrailingSlash(pathname: string) {
+    const matchTrailingSlash = /\/$/;
+    if (matchTrailingSlash.test(pathname)) {
+        return pathname.slice(0, -1);
+    }
+    return pathname;
+}
