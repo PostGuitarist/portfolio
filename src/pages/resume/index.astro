@@ -1,0 +1,88 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ResumeCard from "@/components/ResumeCard.astro";
+---
+
+<!--
+    TODO: Add resume download?
+ -->
+
+<Layout title="Resume">
+    <main class="flex flex-col gap-20">
+        <h1 class="text-2xl text-neutral-100">Resume</h1>
+
+        <section class="flex flex-col gap-4">
+            <h2 class="text-lg">Education</h2>
+            <ResumeCard 
+                title="B.S. in Computer Science"
+                techs="Liberty University"
+                year="2021 - 2025"
+                hasYear={true}
+            />
+        </section>
+
+        <section class="flex flex-col gap-4">
+            <h2 class="text-lg">Work Experience</h2>
+            <ResumeCard 
+                title="Resident Assistant"
+                techs="Liberty University"
+                year="Spring 2024"
+                hasYear={true}
+            />
+            <ResumeCard 
+                title="Software Developer Intern"
+                techs="Samaritan's Purse"
+                year="Summer 2023"
+                hasYear={true}
+            />
+            <ResumeCard 
+                title="Technology Department Intern"
+                techs="Mt. Vernon Baptist Church"
+                year="2020 - 2021"
+                hasYear={true}
+            />
+        </section>
+
+        <section class="flex flex-col gap-4">
+            <h2 class="text-lg">Certificates and Awards</h2>
+            <ResumeCard 
+                title="Dean's List"
+                techs="Liberty University"
+                year="2021 - 2023"
+                hasYear={true}
+            />
+            <ResumeCard 
+                title="Microsoft Office Specialist"
+                year="2018"
+                hasYear={true}
+            />
+        </section>
+
+        <section class="flex flex-col gap-4">
+            <h2 class="text-lg">Community Service and Volunteering</h2>
+            <ResumeCard 
+                title="NC Baptists Volunteer"
+                year="2015 - 2022"
+                hasYear={true}
+            />
+            <ResumeCard 
+                title="OCC Assembly Volunteer"
+                year="2018 - 2021"
+                hasYear={true}
+            />
+            <ResumeCard 
+                title="English Teacher"
+                techs="East Asia"
+                year="2019"
+                hasYear={true}
+            />
+            <ResumeCard 
+                title="English Teacher"
+                techs="Ukraine"
+                year="2017"
+                hasYear={true}
+            />
+        </section>
+
+    </main>
+</Layout>
