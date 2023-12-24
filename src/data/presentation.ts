@@ -1,6 +1,7 @@
 type Social = {
   label: string;
   link: string;
+  iconName: string;
 };
 
 type Presentation = {
@@ -20,14 +21,17 @@ const presentation: Presentation = {
     {
       label: "LinkedIn",
       link: "https://www.linkedin.com/in/zaden-connell/",
+      iconName: "linkedin",
     },
     {
       label: "Instagram",
       link: "https://www.instagram.com/zaden_connell/",
+      iconName: "instagram",
     },
     {
       label: "GitHub",
       link: "https://github.com/PostGuitarist",
+      iconName: "github",
     },
   ],
 };

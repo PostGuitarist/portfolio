@@ -8,10 +8,10 @@ import presentation from "@/data/presentation";
     presentation.socials.map((social, index) => (
       <>
         <li>
-          <Link href={social.link} label={social.label} />
+          <Link href={social.link} label={social.label} iconName={social.iconName}/>
         </li>
 
-        {presentation.socials.length - 1 !== index && <li>•</li>}
+        {presentation.socials.length - 1 !== index && <li></li>}
       </>
     ))
   }
