@@ -16,7 +16,7 @@ const presentation: Presentation = {
   mail: "zaden.connell@gmail.com",
   title: "Hi, I’m Zaden",
   description:
-    "I'm a computer science student with over a year of experience. I am currently working with Astro and C++. Outside of school, I weightlift and play guitar.",
+    "I'm a *computer science student* with over *a year* of experience. I am currently working with *Astro and C++*. Outside of school, I weightlift and play guitar.",
   socials: [
     {
       link: "https://www.linkedin.com/in/zaden-connell/",
