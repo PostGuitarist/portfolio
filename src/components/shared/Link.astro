@@ -21,7 +21,7 @@ const { label, isUnderline, iconName, ...props } = Astro.props;
   target="_blank"
   
 >
-  {iconName && <i class=`fa-brands fa-${iconName} fa-2xl`></i>}
+  {iconName && <i class=`fa-brands fa-${iconName} fa-2xl transition-all`></i>}
   {label && <span>{label}</span>}
   <span class="sr-only">{label} link</span>
 </a>
