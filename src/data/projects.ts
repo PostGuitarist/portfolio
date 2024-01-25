@@ -13,9 +13,9 @@ const projects: Project[] = [
     isComingSoon: false,
   },
   {
-    title: "Caloric",
-    techs: ["Swift", "UIKit", "CoreData"],
-    link: "https://github.com/PostGuitarist/Caloric",
+    title: "LU CS Docs",
+    techs: ["NextJS", "MDX", "Typescript"],
+    link: "https://github.com/PostGuitarist/liberty-macos-docs",
     isComingSoon: false,
   },
   {
