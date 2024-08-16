@@ -1,0 +1,19 @@
+[
+	{
+		"name": "Notched",
+		"description": "More info comming soon...",
+		"image": "/assets/images/projects/macos.notched.png"
+	},
+	{
+		"name": "VSCode to VS Extension",
+		"description": "VSCode extension to create the solution files needed for a Visual Studio C++ project with just source files.",
+		"image": "/assets/images/projects/vsc.to.vs.png",
+		"url": "https://marketplace.visualstudio.com/items?itemName=PostGuitarist.vscode-to-vs"
+	},
+	{
+		"name": "LU CS Documentation",
+		"description": "Guide to using MacOS devices in Liberty University's computer science classes.",
+		"image": "/assets/images/projects/lu.cs.docs.png",
+		"url": "https://cs.cameron.rs/"
+	}
+]

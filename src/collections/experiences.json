@@ -1,0 +1,16 @@
+[
+	{
+		"dates": "June 2024 · Present",
+		"role": "Full-stack Engineer",
+		"company": "SwiftSeg",
+		"description": "",
+		"logo": "/assets/images/experiences/swiftseg.ico"
+	},
+	{
+		"dates": "June 2023 · August 2023",
+		"role": "Software Development Intern",
+		"company": "Samaritan's Purse",
+		"description": "Responsible for mobile front-end development of e-commerce platform.",
+		"logo": "/assets/images/experiences/sp.ico"
+	}
+]
