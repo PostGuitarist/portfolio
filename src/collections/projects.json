@@ -7,13 +7,13 @@
 	{
 		"name": "VSCode to VS Extension",
 		"description": "VSCode extension to create the solution files needed for a Visual Studio C++ project with just source files.",
-		"image": "/assets/images/projects/vsc.to.vs.png",
+		"image": "/assets/images/projects/vsc-vs.png",
 		"url": "https://marketplace.visualstudio.com/items?itemName=PostGuitarist.vscode-to-vs"
 	},
 	{
 		"name": "LU CS Documentation",
 		"description": "Guide to using MacOS devices in Liberty University's computer science classes.",
-		"image": "/assets/images/projects/lu.cs.docs.png",
+		"image": "/assets/images/projects/lu-cs-docs.png",
 		"url": "https://cs.cameron.rs/"
 	}
 ]
