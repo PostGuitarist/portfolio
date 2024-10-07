@@ -1,0 +1,301 @@
+{
+  "basics": {
+    "name": "Zaden Connell",
+    "label": "Computer Science Student @ Liberty University",
+    "image": "/me_avatar.jpg",
+    "email": "me@zadenconnell.com",
+    "phone": "(828)773-9695",
+    "url": "https://zadenconnell.com",
+    "summary": "Software Engineering Student with a passion for building web applications. Currently seeking opportunities to further develop my skills in a professional setting.",
+    "theme": "default",
+    "location": {
+      "address": "",
+      "postalCode": "28607",
+      "city": "Boone",
+      "countryCode": "US",
+      "region": "North Carolina"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "zaden-connell",
+        "url": "https://linkedin.com/in/zaden-connell"
+      },
+      {
+        "network": "X",
+        "username": "ConnellZaden",
+        "url": "https://x.com/ConnellZaden"
+      },
+      {
+        "network": "GitHub",
+        "username": "PostGuitarist",
+        "url": "https://github.com/PostGuitarist"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Liberty Analytical Support Initiative",
+      "position": "AI Developer & Advisor",
+      "location_type": "On site",
+      "location": "Lynchburg, Virginia",
+      "url": "https://www.liberty.edu",
+      "startDate": "2024-08-01",
+      "endDate": null,
+      "summary": "Led AI strategy, evaluated tools, and conducted training at Liberty Analytical Support Initiative.",
+      "responsibilities": [
+        "Led advisory sessions on AI strategy, implementation, and ethical considerations, enhancing organizational decision-making processes.",
+        "Evaluated emerging AI tools and technologies to provide actionable insights, ensuring the adoption of cutting-edge solutions aligned with organization goals.",
+        "Conducted workshops and training programs to upskill teams on AI technologies and methodologies."
+      ],
+      "achievements": [
+        "Led the development of a AI chatbot that equiped international security force advisors."
+      ],
+      "skills": [
+        "AI Development",
+        "AI Strategy",
+        "Training & Development"
+      ]
+    },
+    {
+      "name": "SwiftSeg",
+      "position": "Full Stack Developer",
+      "location_type": "Remote",
+      "location": "Lynchburg, Virginia",
+      "url": "https://swiftseg.app",
+      "startDate": "2024-06-01",
+      "endDate": null,
+      "summary": "Developed scalable web applications, integrated Supabase, and improved team efficiency at SwiftSeg.",
+      "responsibilities": [
+        "Developed and maintained scalable, responsive web applications using Next.js, enhancing user experience and reducing page load times by 40%.",
+        "Integrated Supabase as a backend and database solution for real-time data management, authentication, and storage, streamlining development.",
+        "Contributed to Agile Kanban workflows, improving team efficiency and workflow through effective communication."
+      ],
+      "achievements": [
+        "Developed a web application from scratch that increased user engagement by 30%.",
+        "Reduced page load times by 40% through performance optimization.",
+        "Integrated Supabase as a backend and database solution, streamlining development."
+      ],
+      "skills": [
+        "Web Development",
+        "Next.js",
+        "Supabase",
+        "Agile Development",
+        "Communication",
+        "Performance Optimization",
+        "User Experience",
+        "Scalability",
+        "Real-time Data Management",
+        "Authentication",
+        "Team Efficiency"
+      ]
+    },
+    {
+      "name": "Samaritan's Purse",
+      "position": "Software Development Intern",
+      "location_type": "On site",
+      "location": "Boone, North Carolina",
+      "startDate": "2023-05-01",
+      "endDate": "2023-08-04",
+      "summary": "Launched a major application, developed features and bug fixes, and improved data validation at Samaritan's Purse.",
+      "responsibilities": [
+        "Oversaw the launch of a significant ministry application.",
+        "Independently developed and deployed 14 feature releases and bug fixes for an internal-facing CRM application, which serves hundreds of users.",
+        "Implemented UI and backend features using Angular Typescript and C# to ensure validity and enhance UX.",
+        "Designed and implemented account data validator that accurately flagged over 500k accounts.",
+        "Increased data validator load and running efficiency by over 4x times."
+      ],
+      "achievements": [
+        "Launched a major ministry application.",
+        "Developed and deployed 14 feature releases and bug fixes for an internal-facing CRM application.",
+        "Implemented account data validator that accurately flagged over 500k accounts.",
+        "Increased data validator load and running efficiency by over 4x times."
+      ],
+      "skills": [
+        "Web Development",
+        "Angular",
+        "Typescript",
+        "C#",
+        "UI Design",
+        "MySQL",
+        "Data Validation"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Liberty University",
+      "url": "https://www.liberty.edu",
+      "area": "Computer Science",
+      "studyType": "Bachelor",
+      "startDate": "2021-08-01",
+      "endDate": "2025-05-01",
+      "score": "3.89",
+      "courses": [
+        "CS101 - Introduction to Computer Science",
+        "CS102 - Data Structures"
+      ]
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Converge Leadership Program",
+      "date": "2024-04-01",
+      "issuer": "Canvas Credentials",
+      "url": "https://api.badgr.io/public/assertions/PJyXvHu3QiyfCnQAhOft4w"
+    }
+  ],
+  "skills": [
+    {
+      "name": "HTML",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend"
+      ]
+    },
+    {
+      "name": "CSS",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "Responsive Design"
+      ]
+    },
+    {
+      "name": "JavaScript",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "Backend",
+        "Fullstack"
+      ]
+    },
+    {
+      "name": "Tailwind",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "CSS Framework",
+        "Responsive Design"
+      ]
+    },
+    {
+      "name": "TypeScript",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "Backend",
+        "JavaScript Superset"
+      ]
+    },
+    {
+      "name": "Node",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Backend",
+        "JavaScript",
+        "Server"
+      ]
+    },
+    {
+      "name": "MySQL",
+      "level": "Intermediate",
+      "keywords": [
+        "Databases",
+        "SQL",
+        "Data Storage",
+        "Backend"
+      ]
+    },
+    {
+      "name": "Git",
+      "level": "Intermediate",
+      "keywords": [
+        "Version Control",
+        "Collaboration",
+        "Source Code"
+      ]
+    },
+    {
+      "name": "GitHub",
+      "level": "Intermediate",
+      "keywords": [
+        "Version Control",
+        "Collaboration",
+        "Source Code",
+        "Git"
+      ]
+    },
+    {
+      "name": "Next.js",
+      "level": "Beginner",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "React Framework",
+        "SSR",
+        "Static Generation"
+      ]
+    },
+    {
+      "name": "React",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "JavaScript Library",
+        "UI"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    }
+  ],
+  "projects": [
+    {
+      "name": "VSCode to Visual Studio Extension",
+      "isActive": true,
+      "description": "VSCode extension to create the solution files needed for a Visual Studio C++ project with just source files.",
+      "highlights": [
+        "Built with TypeScript",
+        "VSCode API",
+        "File system operations"
+      ],
+      "url": "https://marketplace.visualstudio.com/items?itemName=PostGuitarist.vscode-to-vs",
+      "github": "https://github.com/PostGuitarist/vscode-to-vs-extension"
+    },
+    {
+      "name": "LU Computer Science Documentation",
+      "isActive": true,
+      "description": "Guide to using MacOS devices in Liberty University's computer science classes .",
+      "highlights": [
+        "Built with Next.js, shadcn/UI and Tailwind CSS",
+        "Responsive design",
+        "Dark mode support"
+      ],
+      "url": "https://cs.cameron.rs",
+      "github": "https://github.com/PostGuitarist/liberty-macos-docs"
+    },
+    {
+      "name": "Portfolio Website",
+      "isActive": false,
+      "description": "My personal portfolio website showcasing my projects, skills, and experience.",
+      "highlights": [
+        "Built with Astro and Tailwind CSS",
+        "Responsive design",
+        "Dark mode support"
+      ],
+      "url": "https://zadenconnell.com",
+      "github": "https://github.com/PostGuitarist/portfolio"
+    }
+  ]
+}
