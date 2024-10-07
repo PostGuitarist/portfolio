@@ -42,20 +42,19 @@
       "url": "https://www.liberty.edu",
       "startDate": "2024-08-01",
       "endDate": null,
-      "summary": "SUMMARY",
-      "highlights": [
-        "HIGHLIGHTS"
-      ],
+      "summary": "Led AI strategy, evaluated tools, and conducted training at Liberty Analytical Support Initiative.",
       "responsibilities": [
         "Led advisory sessions on AI strategy, implementation, and ethical considerations, enhancing organizational decision-making processes.",
         "Evaluated emerging AI tools and technologies to provide actionable insights, ensuring the adoption of cutting-edge solutions aligned with organization goals.",
         "Conducted workshops and training programs to upskill teams on AI technologies and methodologies."
       ],
       "achievements": [
-        "ACHIEVEMENTS"
+        "Led the development of a AI chatbot that equiped international security force advisors."
       ],
       "skills": [
-        "SKILLS"
+        "AI Development",
+        "AI Strategy",
+        "Training & Development"
       ]
     },
     {
@@ -66,20 +65,29 @@
       "url": "https://swiftseg.app",
       "startDate": "2024-06-01",
       "endDate": null,
-      "summary": "SUMMARY",
-      "highlights": [
-        "HIGHLIGHTS"
-      ],
+      "summary": "Developed scalable web applications, integrated Supabase, and improved team efficiency at SwiftSeg.",
       "responsibilities": [
         "Developed and maintained scalable, responsive web applications using Next.js, enhancing user experience and reducing page load times by 40%.",
         "Integrated Supabase as a backend and database solution for real-time data management, authentication, and storage, streamlining development.",
         "Contributed to Agile Kanban workflows, improving team efficiency and workflow through effective communication."
       ],
       "achievements": [
-        "ACHIEVEMENTS"
+        "Developed a web application from scratch that increased user engagement by 30%.",
+        "Reduced page load times by 40% through performance optimization.",
+        "Integrated Supabase as a backend and database solution, streamlining development."
       ],
       "skills": [
-        "SKILLS"
+        "Web Development",
+        "Next.js",
+        "Supabase",
+        "Agile Development",
+        "Communication",
+        "Performance Optimization",
+        "User Experience",
+        "Scalability",
+        "Real-time Data Management",
+        "Authentication",
+        "Team Efficiency"
       ]
     },
     {
@@ -89,10 +97,7 @@
       "location": "Boone, North Carolina",
       "startDate": "2023-05-01",
       "endDate": "2023-08-04",
-      "summary": "SUMMARY",
-      "highlights": [
-        "HIGHLIGHTS"
-      ],
+      "summary": "Launched a major application, developed features and bug fixes, and improved data validation at Samaritan's Purse.",
       "responsibilities": [
         "Oversaw the launch of a significant ministry application.",
         "Independently developed and deployed 14 feature releases and bug fixes for an internal-facing CRM application, which serves hundreds of users.",
@@ -101,10 +106,19 @@
         "Increased data validator load and running efficiency by over 4x times."
       ],
       "achievements": [
-        "ACHIEVEMENTS"
+        "Launched a major ministry application.",
+        "Developed and deployed 14 feature releases and bug fixes for an internal-facing CRM application.",
+        "Implemented account data validator that accurately flagged over 500k accounts.",
+        "Increased data validator load and running efficiency by over 4x times."
       ],
       "skills": [
-        "SKILLS"
+        "Web Development",
+        "Angular",
+        "Typescript",
+        "C#",
+        "UI Design",
+        "MySQL",
+        "Data Validation"
       ]
     }
   ],
