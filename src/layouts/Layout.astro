@@ -14,6 +14,16 @@ const { image, summary, url, theme } = basics;
 <!doctype html>
 <html lang="en">
   <head>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-K1K1E71L5Q"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-K1K1E71L5Q");
+    </script>
+
     <meta charset="UTF-8" />
     <title>{title}</title>
     <meta name="description" content={summary} />
@@ -40,8 +50,7 @@ const { image, summary, url, theme } = basics;
     />
 
     <link rel="stylesheet" href="/themes/themes.css" />
-
-	<SpeedInsights />
+    <SpeedInsights />
   </head>
   <body data-theme={theme} class="relative bg-skin-fill">
     <div class="absolute top-0 -z-10 h-full w-full print:hidden">
