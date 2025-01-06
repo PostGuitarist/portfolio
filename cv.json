@@ -1,12 +1,12 @@
 {
   "basics": {
     "name": "Zaden Connell",
-    "label": "Computer Science Student @ Liberty University",
+    "label": "Incoming Software Engineering at G3 Technologies",
     "image": "/me_avatar.png",
     "email": "me@zadenconnell.com",
     "phone": "(828)773-9695",
     "url": "https://zadenconnell.com",
-    "summary": "Software Engineering Student with a passion for building web applications. Currently seeking opportunities to further develop my skills in a professional setting.",
+    "summary": "I am a software engineer with a passion for developing innovative solutions that drive business growth and improve user experiences. I have a strong background in full-stack development, AI strategy, and training, with a proven track record of delivering high-quality software solutions. I am currently pursuing a Bachelor's degree in Computer Science at Liberty University and am excited to continue my career in software engineering at G3 Technologies.",
     "theme": "default",
     "location": {
       "address": "",
@@ -34,6 +34,15 @@
     ]
   },
   "work": [
+    {
+      "name": "G3 Technologies",
+      "position": "Software Engineer",
+      "location_type": "On site",
+      "location": "Brambleton, Virginia",
+      "url": "https://g3ti.net",
+      "startDate": "2025-05-19",
+      "endDate": null
+    },
     {
       "name": "Liberty Analytical Support Initiative",
       "position": "AI Developer & Advisor",
