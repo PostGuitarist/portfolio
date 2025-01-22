@@ -50,15 +50,16 @@
       "location": "Lynchburg, Virginia",
       "url": "https://www.liberty.edu",
       "startDate": "2024-08-01",
-      "endDate": null,
-      "summary": "Led AI strategy, evaluated tools, and conducted training at Liberty Analytical Support Initiative.",
+      "endDate": "2024-12-18",
+      "summary": "Presented on AI strategy, implementation, and ethical considerations in enhancing cultural competency to NATO Security Force Assistance leaders.",
       "responsibilities": [
-        "Led advisory sessions on AI strategy, implementation, and ethical considerations, enhancing organizational decision-making processes.",
-        "Evaluated emerging AI tools and technologies to provide actionable insights, ensuring the adoption of cutting-edge solutions aligned with organization goals.",
-        "Conducted workshops and training programs to upskill teams on AI technologies and methodologies."
+        "Led the development of a AI chatbot that equiped international security force advisors with the knowledge and skills to enhance cultural competency.",
+        "Created training materials and reccomendations for AI implementation in international security force assistance.",
+        "Analyzed current NATO SFA training programs and reccomended AI integration strategies."
       ],
       "achievements": [
-        "Led the development of a AI chatbot that equiped international security force advisors."
+        "Developed an AI chatbot that equipped international security force advisors with the knowledge and skills to enhance cultural competency.",
+        "Traveled to NATO SFA headquarters in Rome, Italy to present."
       ],
       "skills": [
         "AI Development",
