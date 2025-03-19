@@ -43,6 +43,7 @@
       "startDate": "2024-08-01",
       "summary": "Presented on AI strategy, implementation, and ethical considerations in enhancing cultural competency to NATO Security Force Assistance leaders.",
       "responsibilities": [
+        "Presented a custom trained AI chat-bot to NATO in Rome, Italy.",
         "Led the development of a AI chatbot that equiped international security force advisors with the knowledge and skills to enhance cultural competency.",
         "Created training materials and reccomendations for AI implementation in international security force assistance.",
         "Analyzed current NATO SFA training programs and reccomended AI integration strategies."
@@ -261,6 +262,28 @@
     }
   ],
   "projects": [
+    {
+      "name": "Availi",
+      "isActive": true,
+      "description": "Developed a meeting scheduler using Next.js and PostgreSQL",
+      "highlights": [
+        "Built with Next.js, PostgreSQL, and Tailwind CSS",
+        "Responsive design",
+        "Dark mode support"
+      ],
+      "url": "https://availi.zadenconnell.com"
+    },
+    {
+      "name": "Multithreaded Game of Life",
+      "isActive": true,
+      "description": "A multi-threaded implementation of Conway's Game of Life in C++ using pthreads",
+      "highlights": [
+        "Built with C++ and pthreads",
+        "Multithreading",
+        "Game of Life algorithm"
+      ],
+      "github": "https://github.com/PostGuitarist/multithreaded-gol"
+    },
     {
       "name": "VSCode to Visual Studio Extension",
       "isActive": true,
