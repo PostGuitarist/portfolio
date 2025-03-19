@@ -265,7 +265,7 @@
     {
       "name": "Availi",
       "isActive": true,
-      "description": "Developed a meeting scheduler using Next.js and PostgreSQL",
+      "description": "Meeting scheduler to find the perfect time to meet with everyone",
       "highlights": [
         "Built with Next.js, PostgreSQL, and Tailwind CSS",
         "Responsive design",
@@ -299,7 +299,7 @@
     {
       "name": "LU Computer Science Documentation",
       "isActive": true,
-      "description": "Guide to using MacOS devices in Liberty University's computer science classes .",
+      "description": "Guide to using MacOS devices in Liberty University's computer science classes",
       "highlights": [
         "Built with Next.js, shadcn/UI and Tailwind CSS",
         "Responsive design",
