@@ -301,7 +301,7 @@
       "isActive": true,
       "description": "Guide to using MacOS devices in Liberty University's computer science classes",
       "highlights": [
-        "Built with Next.js, shadcn/UI and Tailwind CSS",
+        "Built with Next.js and Tailwind CSS",
         "Responsive design",
         "Dark mode support"
       ],
