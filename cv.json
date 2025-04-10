@@ -271,7 +271,8 @@
         "Responsive design",
         "Dark mode support"
       ],
-      "url": "https://availi.zadenconnell.com"
+      "url": "https://availi.zadenconnell.com",
+      "github": "https://github.com/PostGuitarist/availi"
     },
     {
       "name": "Multithreaded Game of Life",
