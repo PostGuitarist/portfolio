@@ -6,7 +6,7 @@
     "email": "me@zadenconnell.com",
     "phone": "(828)773-9695",
     "url": "https://zadenconnell.com",
-    "summary": "I am currently a student currently pursuing a Bachelor's degree in Computer Science at Liberty University. I am passionate about software development, artificial intelligence, and machine learning. I have experience in full-stack web development, AI development, and software engineering. I am seeking opportunities to apply my skills and knowledge in a professional setting.",
+    "summary": "I am currently pursuing a full-time position in Software Engineering. I am passionate about software development, artificial intelligence, and machine learning. I have experience in full-stack web development, AI development, and software engineering. I am seeking opportunities to apply my skills and knowledge in a professional setting.",
     "theme": "default",
     "location": {
       "address": "",
@@ -35,35 +35,11 @@
   },
   "work": [
     {
-      "name": "Liberty Analytical Support Initiative",
-      "position": "AI Developer & Advisor",
-      "location_type": "On site",
-      "location": "Lynchburg, Virginia",
-      "url": "https://www.liberty.edu",
-      "startDate": "2024-08-01",
-      "summary": "Presented on AI strategy, implementation, and ethical considerations in enhancing cultural competency to NATO Security Force Assistance leaders.",
-      "responsibilities": [
-        "Presented a custom trained AI chat-bot to NATO in Rome, Italy.",
-        "Led the development of a AI chatbot that equiped international security force advisors with the knowledge and skills to enhance cultural competency.",
-        "Created training materials and reccomendations for AI implementation in international security force assistance.",
-        "Analyzed current NATO SFA training programs and reccomended AI integration strategies."
-      ],
-      "achievements": [
-        "Developed an AI chatbot that equipped international security force advisors with the knowledge and skills to enhance cultural competency.",
-        "Traveled to NATO SFA headquarters in Rome, Italy to present."
-      ],
-      "skills": [
-        "AI Development",
-        "AI Strategy",
-        "Training & Development"
-      ]
-    },
-    {
       "name": "SwiftSeg",
       "position": "Full Stack Developer",
       "location_type": "Remote",
-      "location": "Lynchburg, Virginia",
-      "url": "https://swiftseg.app",
+      "location": "Remote",
+      "url": "https://swiftseg.acceleratedcapitalestimates.com",
       "startDate": "2024-06-01",
       "endDate": null,
       "summary": "Developed scalable web applications, integrated Supabase, and improved team efficiency at SwiftSeg.",
@@ -89,6 +65,31 @@
         "Real-time Data Management",
         "Authentication",
         "Team Efficiency"
+      ]
+    },
+    {
+      "name": "Liberty Analytical Support Initiative",
+      "position": "AI Developer & Advisor",
+      "location_type": "On site",
+      "location": "Lynchburg, Virginia",
+      "url": "https://www.liberty.edu",
+      "startDate": "2024-08-01",
+      "endDate": "2025-05-01",
+      "summary": "Presented on AI strategy, implementation, and ethical considerations in enhancing cultural competency to NATO Security Force Assistance leaders.",
+      "responsibilities": [
+        "Presented a custom trained AI chat-bot to NATO in Rome, Italy.",
+        "Led the development of a AI chatbot that equiped international security force advisors with the knowledge and skills to enhance cultural competency.",
+        "Created training materials and reccomendations for AI implementation in international security force assistance.",
+        "Analyzed current NATO SFA training programs and reccomended AI integration strategies."
+      ],
+      "achievements": [
+        "Developed an AI chatbot that equipped international security force advisors with the knowledge and skills to enhance cultural competency.",
+        "Traveled to NATO SFA headquarters in Rome, Italy to present."
+      ],
+      "skills": [
+        "AI Development",
+        "AI Strategy",
+        "Training & Development"
       ]
     },
     {
@@ -263,16 +264,41 @@
   ],
   "projects": [
     {
-      "name": "Availi",
+      "name": "VSCode to Visual Studio Extension",
       "isActive": true,
-      "description": "Meeting scheduler to find the perfect time to meet with everyone",
+      "description": "VSCode extension to create the solution files needed for a Visual Studio C++ project with just source files.",
       "highlights": [
-        "Built with Next.js, PostgreSQL, and Tailwind CSS",
-        "Responsive design",
-        "Dark mode support"
+        "Built with TypeScript",
+        "VSCode API",
+        "File system operations"
       ],
-      "url": "https://availi.zadenconnell.com",
-      "github": "https://github.com/PostGuitarist/availi"
+      "url": "https://marketplace.visualstudio.com/items?itemName=PostGuitarist.vscode-to-vs",
+      "github": "https://github.com/PostGuitarist/vscode-to-vs-extension"
+    },
+    {
+      "name": "Simple Compiler v2",
+      "isActive": true,
+      "description": "A simple LLVM compiler for a C-like language, built with C, C++, Yacc, and x86 assembly.",
+      "highlights": [
+        "Built with C, C++, Yacc, and x86 assembly",
+        "LLVM backend",
+        "Custom language syntax",
+        "Made as a part of Liberty University's CSCN 434"
+      ],
+      "url": "mailto:me@zadenconnell.com?subject=Portfolio%20Website%20-%20Simple%20Compiler%20v2%20Question"
+    },
+    {
+      "name": "Simple OS v2",
+      "isActive": true,
+      "description": "A simple operating system kernel built with C and x86 assembly.",
+      "highlights": [
+        "Built with C and x86 assembly",
+        "Custom kernel",
+        "Memory management",
+        "File system support",
+        "Made as a part of Liberty University's CSCN 443"
+      ],
+      "url": "mailto:me@zadenconnell.com?subject=Portfolio%20Website%20-%20Simple%20OS%20v3%20Question"
     },
     {
       "name": "Multithreaded Game of Life",
@@ -287,16 +313,16 @@
       "github": "https://github.com/PostGuitarist/multithreaded-gol"
     },
     {
-      "name": "VSCode to Visual Studio Extension",
+      "name": "Availi",
       "isActive": true,
-      "description": "VSCode extension to create the solution files needed for a Visual Studio C++ project with just source files.",
+      "description": "Meeting scheduler to find the perfect time to meet with everyone",
       "highlights": [
-        "Built with TypeScript",
-        "VSCode API",
-        "File system operations"
+        "Built with Next.js, PostgreSQL, and Tailwind CSS",
+        "Responsive design",
+        "Dark mode support"
       ],
-      "url": "https://marketplace.visualstudio.com/items?itemName=PostGuitarist.vscode-to-vs",
-      "github": "https://github.com/PostGuitarist/vscode-to-vs-extension"
+      "url": "https://availi.zadenconnell.com",
+      "github": "https://github.com/PostGuitarist/availi"
     },
     {
       "name": "LU Computer Science Documentation",
