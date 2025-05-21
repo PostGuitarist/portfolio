@@ -86,11 +86,7 @@
         "Developed an AI chatbot that equipped international security force advisors with the knowledge and skills to enhance cultural competency.",
         "Traveled to NATO SFA headquarters in Rome, Italy to present."
       ],
-      "skills": [
-        "AI Development",
-        "AI Strategy",
-        "Training & Development"
-      ]
+      "skills": ["AI Development", "AI Strategy", "Training & Development"]
     },
     {
       "name": "Samaritan's Purse",
@@ -151,29 +147,17 @@
     {
       "name": "HTML",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend"
-      ]
+      "keywords": ["Web Development", "Frontend"]
     },
     {
       "name": "CSS",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "Responsive Design"
-      ]
+      "keywords": ["Web Development", "Frontend", "Responsive Design"]
     },
     {
       "name": "JavaScript",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "Backend",
-        "Fullstack"
-      ]
+      "keywords": ["Web Development", "Frontend", "Backend", "Fullstack"]
     },
     {
       "name": "Tailwind",
@@ -198,41 +182,22 @@
     {
       "name": "Node",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Backend",
-        "JavaScript",
-        "Server"
-      ]
+      "keywords": ["Web Development", "Backend", "JavaScript", "Server"]
     },
     {
       "name": "MySQL",
       "level": "Intermediate",
-      "keywords": [
-        "Databases",
-        "SQL",
-        "Data Storage",
-        "Backend"
-      ]
+      "keywords": ["Databases", "SQL", "Data Storage", "Backend"]
     },
     {
       "name": "Git",
       "level": "Intermediate",
-      "keywords": [
-        "Version Control",
-        "Collaboration",
-        "Source Code"
-      ]
+      "keywords": ["Version Control", "Collaboration", "Source Code"]
     },
     {
       "name": "GitHub",
       "level": "Intermediate",
-      "keywords": [
-        "Version Control",
-        "Collaboration",
-        "Source Code",
-        "Git"
-      ]
+      "keywords": ["Version Control", "Collaboration", "Source Code", "Git"]
     },
     {
       "name": "Next.js",
@@ -248,12 +213,7 @@
     {
       "name": "React",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "JavaScript Library",
-        "UI"
-      ]
+      "keywords": ["Web Development", "Frontend", "JavaScript Library", "UI"]
     }
   ],
   "languages": [
