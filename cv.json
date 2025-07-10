@@ -6,7 +6,7 @@
     "email": "me@zadenconnell.com",
     "phone": "(828)773-9695",
     "url": "https://zadenconnell.com",
-    "summary": "I am currently looking for a full-time software development position. I have experience in embedded development, web development, and AI development. I am currently working on a few personal projects to further my skills.",
+    "summary": "Incoming Software Developer @ Samaritan's Purse | Full Stack Developer @ SwiftSeg",
     "theme": "default",
     "location": {
       "address": "",
@@ -34,6 +34,15 @@
     ]
   },
   "work": [
+    {
+      "name": "Samaritan's Purse",
+      "position": "Software Developer",
+      "location_type": "On site",
+      "location": "Boone, North Carolina",
+      "url": "https://www.samaritanspurse.org",
+      "startDate": "2025-07-22",
+      "endDate": null
+    },
     {
       "name": "SwiftSeg",
       "position": "Full Stack Developer",
