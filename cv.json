@@ -6,7 +6,7 @@
     "email": "me@zadenconnell.com",
     "phone": "(828)773-9695",
     "url": "https://zadenconnell.com",
-    "summary": "Software Developer @ Samaritan's Purse | Full Stack Developer @ SwiftSeg",
+    "summary": "Software Developer @ Samaritan's Purse | Co-Founder @ SwiftSeg",
     "theme": "default",
     "location": {
       "address": "",
@@ -45,9 +45,7 @@
     },
     {
       "name": "SwiftSeg",
-      "position": "Full Stack Developer",
-      "location_type": "Remote",
-      "location": "Remote",
+      "position": "Co-Founder",
       "url": "https://ace-rewrite.zadenconnell.com",
       "startDate": "2024-06-01",
       "endDate": null,
@@ -78,12 +76,34 @@
     },
     {
       "name": "Liberty Analytical Support Initiative",
+      "position": "Intelligence & Security Advisor",
+      "location_type": "On site",
+      "location": "Lynchburg, Virginia",
+      "url": "https://www.liberty.edu",
+      "startDate": "2025-01-02",
+      "endDate": "2025-05-01",
+      "summary": "Conducted critical intelligence analysis and presented strategic recommendations to senior Department of Defense leadership, contributing to U.S. national security decision-making processes.",
+      "responsibilities": [
+        "Conducted extensive research, analysis and framed analytical recommendations on topics pertaining to U.S. national security.",
+        "Presented to the Office of the Under Secretary of Defense and the Joint Staff Strategic Plans & Policy Directorate.",
+        "Traveled to the Department of Defense at the U.S. Pentagon."
+      ],
+      "achievements": [
+        "Delivered strategic intelligence briefings to senior DoD leadership at the Pentagon, influencing national security policy decisions.",
+        "Conducted comprehensive research and analysis on critical U.S. national security topics, producing actionable recommendations.",
+        "Presented findings to the Office of the Under Secretary of Defense and Joint Staff Strategic Plans & Policy Directorate.",
+        "Gained direct access to classified intelligence environments and high-level government decision-makers."
+      ],
+      "skills": ["Intelligence", "Security", "Advisory"]
+    },
+    {
+      "name": "Liberty Analytical Support Initiative",
       "position": "AI Developer & Advisor",
       "location_type": "On site",
       "location": "Lynchburg, Virginia",
       "url": "https://www.liberty.edu",
       "startDate": "2024-08-01",
-      "endDate": "2025-05-01",
+      "endDate": "2024-12-31",
       "summary": "Presented on AI strategy, implementation, and ethical considerations in enhancing cultural competency to NATO Security Force Assistance leaders.",
       "responsibilities": [
         "Presented a custom trained AI chat-bot to NATO in Rome, Italy.",
