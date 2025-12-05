@@ -302,18 +302,6 @@
       "github": "https://github.com/PostGuitarist/multithreaded-gol"
     },
     {
-      "name": "Availi",
-      "isActive": true,
-      "description": "Meeting scheduler to find the perfect time to meet with everyone",
-      "highlights": [
-        "Built with Next.js, PostgreSQL, and Tailwind CSS",
-        "Responsive design",
-        "Dark mode support"
-      ],
-      "url": "https://availi.zadenconnell.com",
-      "github": "https://github.com/PostGuitarist/availi"
-    },
-    {
       "name": "LU Computer Science Documentation",
       "isActive": true,
       "description": "Guide to using MacOS devices in Liberty University's computer science classes",
