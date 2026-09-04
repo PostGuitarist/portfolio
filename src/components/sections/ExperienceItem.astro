@@ -1,0 +1,229 @@
+---
+import Tag from "@/components/ui/Tag.astro";
+import Arrow from "@/icons/Arrow.astro";
+import { getYear } from "@/lib/dates";
+import type { Work } from "@/types";
+
+interface Props extends Work {
+	/** Hides the trailing timeline rule on the final entry. */
+	isLast?: boolean;
+}
+
+const { name, position, url, startDate, endDate, location, location_type, summary, responsibilities, achievements, skills = [], isLast = false } = Astro.props;
+
+// `summary` may be a single paragraph or a list of bullet points.
+const summaryItems = summary ? (Array.isArray(summary) ? summary : [summary]) : [];
+const hasDetails = Boolean(responsibilities?.length || achievements?.length);
+const place = [location, location_type].filter(Boolean).join(" · ");
+---
+
+<li class="entry group/entry relative">
+	<div class="grid sm:grid-cols-12 sm:gap-8 md:gap-6 print:grid-cols-1 print:gap-1">
+		<header class="mt-1 text-xs font-semibold leading-tight text-skin-muted sm:col-span-2 sm:pr-4">
+			<time datetime={startDate}>{getYear(startDate)}</time>
+			<span aria-hidden="true"> – </span>
+			<time datetime={endDate ?? undefined}>{endDate ? getYear(endDate) : "Present"}</time>
+		</header>
+
+		<div class:list={["timeline relative flex flex-col pb-8 sm:col-span-10 print:pb-0", isLast && "is-last"]}>
+			<span class="dot no-print" aria-hidden="true"></span>
+
+			<h3 class="text-lg leading-tight print:text-base">
+				<span>{position} <span class="text-skin-muted">@</span> </span>
+				{
+					url ? (
+						<a class="company" href={url} title={`View ${name}`} target="_blank" rel="noopener noreferrer">
+							{name}
+							<span class="company-arrow no-print">
+								<Arrow />
+							</span>
+						</a>
+					) : (
+						<span>{name}</span>
+					)
+				}
+			</h3>
+
+			{place && <p class="mt-0.5 text-xs text-skin-muted">{place}</p>}
+
+			<div class="mt-4 flex flex-col gap-4 text-sm print:mt-2 print:gap-2 print:text-xs">
+				{
+					summaryItems.length > 0 && (
+						<ul class="bullets">
+							{summaryItems.map((item) => (
+								<li>{item}</li>
+							))}
+						</ul>
+					)
+				}
+
+				{
+					hasDetails && (
+						<details class="entry-details">
+							<summary class="no-print">
+								<span class="label-more">Show more</span>
+								<span class="label-less">Show less</span>
+								<svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+									<polyline points="6 9 12 15 18 9" />
+								</svg>
+							</summary>
+
+							<div class="details-body">
+								{responsibilities && responsibilities.length > 0 && (
+									<div class="flex flex-col gap-1">
+										<h4 class="text-sm font-semibold">Responsibilities</h4>
+										<ul class="bullets">
+											{responsibilities.map((item) => (
+												<li>{item}</li>
+											))}
+										</ul>
+									</div>
+								)}
+
+								{achievements && achievements.length > 0 && (
+									<div class="flex flex-col gap-1">
+										<h4 class="text-sm font-semibold">Achievements</h4>
+										<ul class="bullets">
+											{achievements.map((item) => (
+												<li>{item}</li>
+											))}
+										</ul>
+									</div>
+								)}
+							</div>
+						</details>
+					)
+				}
+
+				{
+					skills.length > 0 && (
+						<ul class="flex flex-wrap gap-2 print:hidden" aria-label={`Technologies used at ${name}`}>
+							{skills.map((skill) => (
+								<Tag name={skill} />
+							))}
+						</ul>
+					)
+				}
+			</div>
+		</div>
+	</div>
+</li>
+
+<style>
+	/*
+	 * Timeline rail and node. Both are hidden below `sm`, where entries stack and
+	 * the rail would sit against the edge of the viewport, and when printing.
+	 */
+	.timeline::before {
+		content: "";
+		@apply absolute -ml-6 mt-2 hidden h-full w-px sm:block print:!hidden;
+		background: linear-gradient(to bottom, rgba(var(--color), 0.45), rgba(var(--color), 0.05));
+	}
+
+	/* The final entry has nothing below it to connect to. */
+	.timeline.is-last::before {
+		@apply sm:hidden;
+	}
+
+	.dot {
+		@apply absolute mt-2 hidden size-2 rounded-full bg-skin-border ring-4 ring-skin-fill transition-[background-color,box-shadow] duration-300 sm:block;
+		transform: translateX(-1.71rem);
+	}
+
+	.group\/entry:hover .dot {
+		@apply bg-skin-hue;
+		box-shadow: 0 0 0 6px rgba(var(--color), 0.15);
+	}
+
+	.company {
+		@apply text-skin-hue decoration-dotted underline-offset-4 hover:underline;
+	}
+
+	.company-arrow {
+		@apply ml-0.5 inline-block align-middle text-skin-hue transition-transform duration-200;
+	}
+
+	.company:hover .company-arrow {
+		@apply -translate-y-0.5 translate-x-0.5;
+	}
+
+	.company-arrow :global(svg) {
+		@apply inline size-4;
+	}
+
+	.bullets {
+		@apply flex list-disc flex-col gap-2 text-skin-muted print:gap-1;
+	}
+
+	.bullets > li {
+		@apply ml-4;
+	}
+
+	.bullets > li::marker {
+		@apply text-skin-hue;
+	}
+
+	/* Collapsible details, replacing the Alpine.js `x-collapse` directive. */
+	.entry-details > summary {
+		@apply flex w-fit cursor-pointer list-none items-center gap-1.5 text-xs text-skin-muted underline decoration-dotted underline-offset-4 transition-colors duration-200;
+	}
+
+	.entry-details > summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.entry-details > summary:hover {
+		@apply text-skin-base;
+	}
+
+	.chevron {
+		@apply size-4 transition-transform duration-200;
+	}
+
+	.entry-details[open] > summary .chevron {
+		@apply rotate-180;
+	}
+
+	.label-less,
+	.entry-details[open] .label-more {
+		display: none;
+	}
+
+	.entry-details[open] .label-less {
+		display: inline;
+	}
+
+	.details-body {
+		@apply flex flex-col gap-4 pt-3 print:gap-2 print:pt-1;
+	}
+
+	/*
+	 * Animates the disclosure where supported (Chrome 131+, Safari 18.4+,
+	 * Firefox 139+) and degrades to an instant open elsewhere.
+	 */
+	.entry-details::details-content {
+		block-size: 0;
+		overflow: hidden;
+		transition:
+			block-size 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+			content-visibility 0.35s allow-discrete;
+	}
+
+	.entry-details[open]::details-content {
+		block-size: auto;
+	}
+
+	/*
+	 * Printing must show the collapsed content. The `beforeprint` handler in
+	 * Layout.astro opens every <details> for browsers that need it; this makes
+	 * the same guarantee in CSS alone wherever ::details-content is supported.
+	 */
+	@media print {
+		.entry-details::details-content,
+		.entry-details[open]::details-content {
+			block-size: auto !important;
+			overflow: visible !important;
+			content-visibility: visible !important;
+		}
+	}
+</style>

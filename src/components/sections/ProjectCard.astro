@@ -1,0 +1,128 @@
+---
+import Arrow from "@/icons/Arrow.astro";
+import Git from "@/icons/git.astro";
+import type { Project } from "@/types";
+
+type Props = Project;
+
+const { name, description, highlights, url, github, isActive } = Astro.props;
+---
+
+<article class="card">
+	<header class="flex items-start justify-between gap-3">
+		<div class="flex min-w-0 items-center gap-2">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class="size-4 shrink-0 text-skin-hue"
+				aria-hidden="true"
+			>
+				<path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path>
+			</svg>
+
+			<h3 class="min-w-0 text-lg font-medium leading-tight">
+				{
+					url ? (
+						<a class="title-link" href={url} title={`View ${name}`} target="_blank" rel="noopener noreferrer">
+							{name}
+							<span class="title-arrow">
+								<Arrow />
+							</span>
+						</a>
+					) : (
+						name
+					)
+				}
+			</h3>
+		</div>
+
+		<div class="flex shrink-0 items-center gap-2">
+			{isActive && <span class="status" title="Actively maintained" aria-label="Actively maintained" />}
+			{
+				github && (
+					<a href={github} title={`View ${name} on GitHub`} target="_blank" rel="noopener noreferrer" class="text-skin-muted transition-colors duration-200 hover:text-skin-base">
+						<Git />
+						<span class="sr-only">GitHub repository</span>
+					</a>
+				)
+			}
+		</div>
+	</header>
+
+	<p class="py-3">{description}</p>
+
+	<ul class="highlights">
+		{highlights.map((highlight) => <li>{highlight}</li>)}
+	</ul>
+</article>
+
+<style>
+	.card {
+		@apply relative isolate flex flex-col overflow-hidden rounded-xl border border-skin-border bg-skin-surface/70 p-5 shadow-card backdrop-blur-sm;
+		transition:
+			transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+			border-color 0.3s ease,
+			box-shadow 0.3s ease;
+	}
+
+	/* Cursor-following highlight, positioned by the script in Projects.astro. */
+	.card::after {
+		content: "";
+		@apply pointer-events-none absolute inset-0 -z-10 opacity-0 transition-opacity duration-300;
+		background: radial-gradient(20rem circle at var(--pointer-x, 50%) var(--pointer-y, 0%), rgba(var(--color), 0.12), transparent 65%);
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		.card:hover {
+			@apply -translate-y-1 border-skin-hue/40 shadow-card-hover;
+		}
+
+		.card:hover::after {
+			@apply opacity-100;
+		}
+	}
+
+	.card:focus-within {
+		@apply border-skin-hue/40;
+	}
+
+	.title-link {
+		@apply decoration-dotted underline-offset-4 transition-colors duration-200 hover:text-skin-hue hover:underline;
+	}
+
+	.title-arrow {
+		@apply ml-0.5 inline-block align-middle text-skin-hue transition-transform duration-200;
+	}
+
+	.title-link:hover .title-arrow {
+		@apply -translate-y-0.5 translate-x-0.5;
+	}
+
+	.title-arrow :global(svg) {
+		@apply inline size-4;
+	}
+
+	.status {
+		@apply size-2 shrink-0 rounded-full bg-green-500;
+		box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+	}
+
+	.highlights {
+		@apply ml-4 list-disc space-y-1 text-sm text-skin-muted;
+	}
+
+	.highlights > li::marker {
+		@apply text-skin-hue;
+	}
+
+	@media print {
+		.card {
+			@apply border-zinc-300 shadow-none;
+		}
+	}
+</style>

@@ -1,54 +1,73 @@
-# Astro Starter Kit: Basics
+# zadenconnell.com
 
-```sh
-npm create astro@latest -- --template basics
-```
+Personal portfolio and résumé, built with [Astro](https://astro.build) and
+[Tailwind CSS](https://tailwindcss.com) and deployed to Vercel.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+All content comes from a single [`cv.json`](./cv.json) file that follows the
+[JSON Resume](https://jsonresume.org/schema/) schema, so updating the site
+usually means editing that file and nothing else.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Commands
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+| Command           | Action                                                 |
+| :---------------- | :----------------------------------------------------- |
+| `bun install`     | Install dependencies                                   |
+| `bun run dev`     | Start the dev server at `localhost:4321`               |
+| `bun run build`   | Type-check with `astro check`, then build to `./dist/` |
+| `bun run preview` | Preview the production build locally                   |
+| `bun run check`   | Type-check only                                        |
+| `bun run format`  | Format everything with Prettier                        |
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Project structure
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+cv.json                     All résumé content (JSON Resume schema + extras)
+src/
+├── components/
+│   ├── sections/           One component per page section
+│   ├── ui/                 Small shared pieces (Tag, TechIcon, ResumeEntry…)
+│   ├── BackgroundDecoration.astro
+│   ├── CommandPalette.astro       ⌘K palette
+│   ├── CommandPaletteButton.astro
+│   ├── ContactLinks.astro
+│   ├── CopyEmailButton.astro
+│   ├── Section.astro              Titled section wrapper
+│   └── ThemeSwitch.astro          System / light / dark segmented control
+├── icons/                  Single-purpose SVG components
+├── layouts/Layout.astro    <head>, theme bootstrap, scroll reveal, print hooks
+├── lib/
+│   ├── cv.ts               Typed access to cv.json
+│   ├── dates.ts            Date-range formatting
+│   ├── palette-icons.ts    Raw SVG strings for the command palette
+│   └── theme.ts            Theme preference storage and application
+├── pages/index.astro       The single page
+├── styles/global.css       Tailwind entry point + design tokens
+└── types.ts                Shape of cv.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Theming
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Colours are CSS custom properties holding bare `R, G, B` triplets, defined in
+`src/styles/global.css` and exposed to Tailwind as a single `skin` palette
+(`bg-skin-fill`, `text-skin-muted`, `border-skin-border`, `text-skin-hue`, …).
 
-Any static assets, like images, can be placed in the `public/` directory.
+- **Light / dark** is chosen by the visitor and stored in `localStorage`. An
+  inline script in `<head>` applies it before first paint, so there is no flash
+  of the wrong theme.
+- **Alternate palettes** (`blue`, `red`, `green`, `cyber`) are selected with
+  `basics.theme` in `cv.json`, which sets `data-theme` on `<html>`.
 
-## 🧞 Commands
+## Printing
 
-All commands are run from the root of the project, from a terminal:
+`Cmd/Ctrl + P` — or the "Open resume (PDF)" command in the palette — produces a
+condensed one-page résumé. Printing always uses a light, ink-friendly palette
+and expands every collapsed "Show more" section, in CSS as well as via
+`beforeprint`, so headless PDF generation gets the same result.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Notes
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- The site is fully static (`output: "static"`); the Vercel adapter is used for
+  Web Analytics and Speed Insights.
+- Interactions (theme switch, copy-to-clipboard, disclosures, command palette)
+  are plain TypeScript with no client framework.
+- All motion is gated behind `prefers-reduced-motion`.

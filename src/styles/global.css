@@ -1,0 +1,363 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Design tokens.
+ *
+ * Every colour is stored as a bare `R, G, B` triplet so Tailwind can compose it
+ * with an opacity modifier (see `withOpacity` in tailwind.config.mjs).
+ *
+ * Light values live on `:root`, dark values on `html.dark`. Alternate palettes
+ * are selected with `data-theme` on the same element, so the selectors stay flat
+ * and predictable: `html[data-theme="blue"]` / `html.dark[data-theme="blue"]`.
+ */
+@layer base {
+	:root {
+		color-scheme: light;
+
+		--color-text-base: 24, 24, 27;
+		--color-text-muted: 106, 106, 115;
+		--color-text-inverted: 255, 255, 255;
+
+		--color-fill: 250, 250, 249;
+		--color-surface: 255, 255, 255;
+		--color-border: 228, 228, 231;
+		--muted: 212, 212, 216;
+
+		--color: 234, 88, 12;
+		--color-accent-soft: 251, 146, 60;
+		--color-button-accent: 234, 88, 12;
+		--color-button-accent-hover: 194, 65, 12;
+		--color-button-muted: 244, 244, 245;
+
+		--shadow-card: 0 1px 2px rgba(24, 24, 27, 0.04), 0 8px 24px -12px rgba(24, 24, 27, 0.12);
+		--shadow-card-hover: 0 1px 2px rgba(24, 24, 27, 0.05), 0 18px 40px -16px rgba(24, 24, 27, 0.22);
+	}
+
+	html.dark {
+		color-scheme: dark;
+
+		--color-text-base: 244, 244, 245;
+		--color-text-muted: 161, 161, 170;
+		--color-text-inverted: 255, 255, 255;
+
+		--color-fill: 10, 10, 11;
+		--color-surface: 24, 24, 27;
+		--color-border: 39, 39, 42;
+		--muted: 45, 45, 50;
+
+		--color: 251, 146, 60;
+		--color-accent-soft: 253, 186, 116;
+		--color-button-accent: 234, 88, 12;
+		--color-button-accent-hover: 251, 146, 60;
+		--color-button-muted: 24, 24, 27;
+
+		--shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+		--shadow-card-hover: 0 1px 2px rgba(0, 0, 0, 0.5), 0 18px 40px -16px rgba(0, 0, 0, 0.8);
+	}
+
+	html[data-theme="blue"] {
+		--color-text-base: 15, 23, 42;
+		--color-text-muted: 87, 101, 124;
+		--color-fill: 248, 250, 252;
+		--color-surface: 255, 255, 255;
+		--color-border: 226, 232, 240;
+		--muted: 203, 213, 225;
+		--color: 37, 99, 235;
+		--color-accent-soft: 96, 165, 250;
+		--color-button-accent: 37, 99, 235;
+		--color-button-accent-hover: 29, 78, 216;
+		--color-button-muted: 241, 245, 249;
+	}
+
+	html.dark[data-theme="blue"] {
+		--color-text-base: 248, 250, 252;
+		--color-text-muted: 148, 163, 184;
+		--color-fill: 2, 6, 23;
+		--color-surface: 15, 23, 42;
+		--color-border: 30, 41, 59;
+		--muted: 40, 52, 72;
+		--color: 96, 165, 250;
+		--color-accent-soft: 147, 197, 253;
+		--color-button-accent: 37, 99, 235;
+		--color-button-accent-hover: 96, 165, 250;
+		--color-button-muted: 15, 23, 42;
+	}
+
+	html[data-theme="red"] {
+		--color-text-base: 28, 25, 23;
+		--color-text-muted: 111, 104, 100;
+		--color-fill: 250, 250, 249;
+		--color-surface: 255, 255, 255;
+		--color-border: 231, 229, 228;
+		--muted: 214, 211, 209;
+		--color: 220, 38, 38;
+		--color-accent-soft: 248, 113, 113;
+		--color-button-accent: 220, 38, 38;
+		--color-button-accent-hover: 185, 28, 28;
+		--color-button-muted: 245, 245, 244;
+	}
+
+	html.dark[data-theme="red"] {
+		--color-text-base: 231, 229, 228;
+		--color-text-muted: 168, 162, 158;
+		--color-fill: 12, 10, 9;
+		--color-surface: 28, 25, 23;
+		--color-border: 41, 37, 36;
+		--muted: 50, 45, 44;
+		--color: 248, 113, 113;
+		--color-accent-soft: 252, 165, 165;
+		--color-button-accent: 220, 38, 38;
+		--color-button-accent-hover: 248, 113, 113;
+		--color-button-muted: 28, 25, 23;
+	}
+
+	html[data-theme="green"] {
+		--color-text-base: 20, 30, 20;
+		--color-text-muted: 98, 112, 96;
+		--color-fill: 247, 254, 240;
+		--color-surface: 255, 255, 255;
+		--color-border: 220, 235, 205;
+		--muted: 198, 220, 178;
+		--color: 77, 124, 15;
+		--color-accent-soft: 132, 204, 22;
+		--color-button-accent: 77, 124, 15;
+		--color-button-accent-hover: 63, 98, 18;
+		--color-button-muted: 236, 250, 222;
+	}
+
+	html.dark[data-theme="green"] {
+		--color-text-base: 236, 253, 226;
+		--color-text-muted: 148, 173, 140;
+		--color-fill: 8, 14, 8;
+		--color-surface: 20, 30, 20;
+		--color-border: 34, 48, 34;
+		--muted: 44, 60, 44;
+		--color: 163, 230, 53;
+		--color-accent-soft: 190, 242, 100;
+		--color-button-accent: 101, 163, 13;
+		--color-button-accent-hover: 163, 230, 53;
+		--color-button-muted: 20, 30, 20;
+	}
+
+	html[data-theme="cyber"] {
+		--color-text-base: 15, 15, 15;
+		--color-text-muted: 92, 88, 20;
+		--color-fill: 252, 255, 64;
+		--color-surface: 253, 255, 128;
+		--color-border: 202, 205, 40;
+		--muted: 202, 205, 40;
+		--color: 200, 15, 35;
+		--color-accent-soft: 235, 21, 43;
+		--color-button-accent: 235, 21, 43;
+		--color-button-accent-hover: 180, 12, 30;
+		--color-button-muted: 249, 252, 96;
+	}
+
+	html.dark[data-theme="cyber"] {
+		--color-text-base: 252, 255, 64;
+		--color-text-muted: 168, 170, 90;
+		--color-fill: 12, 12, 12;
+		--color-surface: 22, 22, 22;
+		--color-border: 48, 48, 40;
+		--muted: 55, 55, 45;
+		--color: 90, 237, 251;
+		--color-accent-soft: 165, 246, 255;
+		--color-button-accent: 34, 190, 205;
+		--color-button-accent-hover: 90, 237, 251;
+		--color-button-muted: 22, 22, 22;
+	}
+}
+
+@layer base {
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	body,
+	figure {
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		@apply bg-skin-fill text-skin-base antialiased;
+		font-family:
+			ui-sans-serif,
+			system-ui,
+			-apple-system,
+			BlinkMacSystemFont,
+			"Segoe UI",
+			Roboto,
+			"Helvetica Neue",
+			Arial,
+			"Noto Sans",
+			sans-serif;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		@apply text-balance text-skin-base;
+		margin: 0;
+	}
+
+	p {
+		@apply text-sm text-skin-muted;
+		line-height: 1.6;
+		text-wrap: pretty;
+	}
+
+	/* One consistent focus treatment for every interactive element. */
+	:focus-visible {
+		@apply outline-none ring-2 ring-skin-hue ring-offset-2 ring-offset-skin-fill;
+		border-radius: 4px;
+	}
+
+	::selection {
+		@apply bg-skin-hue/25 text-skin-base;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.001ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.001ms !important;
+		}
+	}
+}
+
+@layer components {
+	/*
+	 * Elements start hidden and are revealed by the IntersectionObserver in
+	 * Layout.astro. `.reveal-ready` is only set once JS is running, so the content
+	 * stays visible for crawlers, print and no-JS visitors.
+	 */
+	.reveal-ready .reveal {
+		opacity: 0;
+		transform: translateY(12px);
+		transition:
+			opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+			transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+		transition-delay: var(--reveal-delay, 0ms);
+	}
+
+	.reveal-ready .reveal.is-visible {
+		opacity: 1;
+		transform: none;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.reveal-ready .reveal {
+			opacity: 1;
+			transform: none;
+		}
+	}
+
+	/* Never let the reveal animation hide content from the printed page. */
+	@media print {
+		.reveal-ready .reveal {
+			opacity: 1 !important;
+			transform: none !important;
+		}
+	}
+
+	/* Shared pill used for skills and technology tags. */
+	.tag {
+		@apply inline-flex items-center gap-1.5 rounded-full border border-skin-border bg-skin-surface/60 px-2.5 py-1 text-xs font-medium text-skin-muted transition-colors duration-200;
+	}
+
+	.tag:hover {
+		@apply border-skin-hue/40 bg-skin-hue/10 text-skin-base;
+	}
+
+	.tag svg {
+		@apply size-3.5 shrink-0 text-skin-hue;
+	}
+}
+
+@layer utilities {
+	.text-gradient {
+		@apply bg-gradient-to-br from-skin-base via-skin-base to-skin-hue bg-clip-text text-transparent;
+	}
+}
+
+/*
+ * Printing gets its own palette rather than relying only on the `beforeprint`
+ * handler in Layout.astro: paper is white, and the accent is darkened so links
+ * stay legible in ink. This also covers headless PDF generation, which does not
+ * always fire `beforeprint`.
+ */
+@media print {
+	html,
+	html.dark,
+	html.dark[data-theme] {
+		color-scheme: light;
+		--color-text-base: 24, 24, 27;
+		--color-text-muted: 82, 82, 91;
+		--color-text-inverted: 255, 255, 255;
+		--color-fill: 255, 255, 255;
+		--color-surface: 255, 255, 255;
+		--color-border: 212, 212, 216;
+		--muted: 228, 228, 231;
+		--color: 180, 60, 10;
+		--color-accent-soft: 180, 60, 10;
+		--color-button-accent: 180, 60, 10;
+		--color-button-muted: 245, 245, 245;
+		--shadow-card: none;
+		--shadow-card-hover: none;
+	}
+}
+
+/* Screen-only / print-only helpers. */
+.print-only {
+	display: none !important;
+}
+
+@media print {
+	.no-print {
+		display: none !important;
+	}
+
+	.print-only {
+		display: block !important;
+	}
+
+	astro-dev-toolbar {
+		display: none !important;
+	}
+
+	article,
+	li {
+		break-inside: avoid;
+	}
+
+	a {
+		text-decoration: none !important;
+	}
+}

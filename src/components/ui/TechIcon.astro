@@ -1,0 +1,70 @@
+---
+import CSS from "@/icons/css.astro";
+import Figma from "@/icons/Figma.astro";
+import Flutter from "@/icons/flutter.astro";
+import Git from "@/icons/git.astro";
+import GitHub from "@/icons/GitHub.astro";
+import Gitlab from "@/icons/Gitlab.astro";
+import HTML from "@/icons/html.astro";
+import JavaScript from "@/icons/javascript.astro";
+import Kotlin from "@/icons/kotlin.astro";
+import MySQL from "@/icons/sql.astro";
+import Next from "@/icons/next.astro";
+import Node from "@/icons/node.astro";
+import React from "@/icons/react.astro";
+import Swift from "@/icons/swift.astro";
+import SwiftUI from "@/icons/swiftui.astro";
+import Tailwind from "@/icons/tailwind.astro";
+import TypeScript from "@/icons/type.astro";
+
+/**
+ * Renders the logo for a technology, or nothing when there is no icon for it.
+ * Previously this lookup table was duplicated in Experience.astro and
+ * Skills.astro, which meant they drifted apart (Skills knew about Figma and
+ * GitLab, Experience did not).
+ */
+const TECH_ICONS: Record<string, any> = {
+	CSS,
+	Figma,
+	Flutter,
+	Git,
+	GitHub,
+	GitLab: Gitlab,
+	HTML,
+	JavaScript,
+	Kotlin,
+	MySQL,
+	"Next.js": Next,
+	Node,
+	React,
+	Swift,
+	SwiftUI,
+	Tailwind,
+	TypeScript,
+};
+
+/** Accept common spellings so `cv.json` does not have to match key casing. */
+const ALIASES: Record<string, string> = {
+	"node.js": "Node",
+	nodejs: "Node",
+	next: "Next.js",
+	nextjs: "Next.js",
+	ts: "TypeScript",
+	js: "JavaScript",
+	"tailwind css": "Tailwind",
+	tailwindcss: "Tailwind",
+	sql: "MySQL",
+	gitlab: "GitLab",
+};
+
+interface Props {
+	name: string;
+}
+
+const { name } = Astro.props;
+
+const canonical = ALIASES[name.toLowerCase()] ?? name;
+const Icon = TECH_ICONS[canonical] ?? Object.entries(TECH_ICONS).find(([key]) => key.toLowerCase() === canonical.toLowerCase())?.[1];
+---
+
+{Icon && <Icon />}

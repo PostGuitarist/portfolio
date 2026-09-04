@@ -1,8 +1,28 @@
 ---
-const { className, title } = Astro.props;
+/**
+ * A titled block of the résumé. The heading renders as an `<h2>` so the page
+ * keeps a valid outline: `h1` (name) → `h2` (section) → `h3` (entry).
+ */
+interface Props {
+	title?: string;
+	/** Anchor id, also used as the accessible label for untitled sections. */
+	id?: string;
+	class?: string;
+}
+
+const { title, id, class: className } = Astro.props;
+const headingId = title && id ? `${id}-title` : undefined;
 ---
 
-<section class:list={["flex flex-col gap-4 print:gap-0", className]}>
-	{title && <h3 class="relative flex w-full items-center gap-3 pb-4 text-3xl print:gap-1 print:pb-0 print:text-xl">{title}</h3>}
+<section id={id} aria-labelledby={headingId} class:list={["reveal flex scroll-mt-16 flex-col gap-4 print:gap-0", className]}>
+	{
+		title && (
+			<h2 id={headingId} class="flex w-full items-center gap-3 pb-2 print:gap-1 print:pb-0">
+				<span aria-hidden="true" class="h-5 w-1 shrink-0 rounded-full bg-gradient-to-b from-skin-hue to-skin-hue/30 print:hidden" />
+				<span class="text-2xl font-semibold tracking-tight sm:text-3xl print:text-xl">{title}</span>
+				<span aria-hidden="true" class="h-px flex-1 bg-gradient-to-r from-skin-border to-transparent print:hidden" />
+			</h2>
+		)
+	}
 	<slot />
 </section>

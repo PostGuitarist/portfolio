@@ -1,0 +1,37 @@
+---
+import { basics } from "@/lib/cv";
+
+const github = basics.profiles.find(({ network }) => network === "GitHub");
+const year = new Date().getFullYear();
+---
+
+<footer class="no-print flex w-full max-w-7xl flex-col items-center gap-1 pt-4 text-xs text-skin-muted md:col-span-6">
+	<p class="text-xs">
+		Made by{" "}
+		{
+			github ? (
+				<a class="made-by" href={github.url} target="_blank" rel="noopener noreferrer">
+					{basics.name.split(" ")[0]}
+				</a>
+			) : (
+				basics.name.split(" ")[0]
+			)
+		}
+		<span aria-hidden="true"> · </span>
+		<span>{year}</span>
+	</p>
+	<p class="text-xs">
+		Press <kbd>⌘</kbd>
+		<kbd>K</kbd> to jump around
+	</p>
+</footer>
+
+<style>
+	.made-by {
+		@apply text-skin-base underline decoration-dotted underline-offset-4 transition-colors duration-200 hover:text-skin-hue;
+	}
+
+	kbd {
+		@apply inline-flex min-w-5 items-center justify-center rounded border border-skin-border bg-skin-surface px-1 py-0.5 font-sans text-[0.65rem] text-skin-base;
+	}
+</style>

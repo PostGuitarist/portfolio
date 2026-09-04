@@ -1,0 +1,59 @@
+---
+import Command from "@/icons/Command.astro";
+
+/**
+ * Opens the command palette. Rendered twice — inline with the contact links on
+ * desktop, and as a floating action button on small screens — so the markup and
+ * behaviour live in one component instead of being copy-pasted with a hardcoded
+ * white background that broke in dark mode.
+ */
+interface Props {
+	/** "inline" sits with the social icons, "floating" is the mobile FAB. */
+	variant?: "inline" | "floating";
+	class?: string;
+}
+
+const { variant = "inline", class: className } = Astro.props;
+---
+
+<button type="button" class:list={["command-trigger no-print", variant, className]} aria-label="Open command palette" aria-keyshortcuts="Meta+K Control+K">
+	<Command />
+</button>
+
+<style>
+	.command-trigger {
+		@apply cursor-pointer items-center justify-center text-skin-hue transition-colors duration-200;
+	}
+
+	.inline {
+		@apply hidden size-8 rounded-md p-1 sm:inline-flex;
+	}
+
+	.inline:hover {
+		@apply bg-skin-button-accent text-skin-inverted;
+	}
+
+	.floating {
+		@apply fixed bottom-5 right-5 z-40 flex size-12 rounded-full border border-skin-border bg-skin-surface shadow-card backdrop-blur sm:hidden;
+	}
+
+	.floating:active {
+		@apply scale-95;
+	}
+
+	.command-trigger :global(svg) {
+		@apply size-5;
+	}
+
+	.floating :global(svg) {
+		@apply size-6;
+	}
+</style>
+
+<script>
+	for (const button of document.querySelectorAll<HTMLButtonElement>(".command-trigger")) {
+		button.addEventListener("click", () => {
+			window.dispatchEvent(new CustomEvent("commandpalette:open"));
+		});
+	}
+</script>
