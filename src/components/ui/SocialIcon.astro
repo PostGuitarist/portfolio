@@ -1,0 +1,17 @@
+---
+import GitHub from "@/icons/GitHub.astro";
+import LinkedIn from "@/icons/LinkedIn.astro";
+import X from "@/icons/X.astro";
+
+/** Icon for a social profile listed in `cv.json`. Unknown networks render nothing. */
+const SOCIAL_ICONS: Record<string, any> = { GitHub, LinkedIn, X };
+
+interface Props {
+	network: string;
+}
+
+const { network } = Astro.props;
+const Icon = SOCIAL_ICONS[network];
+---
+
+{Icon && <Icon />}

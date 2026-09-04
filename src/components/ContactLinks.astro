@@ -1,0 +1,55 @@
+---
+import CommandPaletteButton from "@/components/CommandPaletteButton.astro";
+import CopyEmailButton from "@/components/CopyEmailButton.astro";
+import SocialIcon from "@/components/ui/SocialIcon.astro";
+import Phone from "@/icons/Phone.astro";
+import type { Profile } from "@/types";
+
+interface Props {
+	name: string;
+	email?: string;
+	phone?: string;
+	profiles: Profile[];
+}
+
+const { name, email, phone, profiles } = Astro.props;
+---
+
+<div class="contact-links no-print">
+	{email && <CopyEmailButton email={email} />}
+	{
+		phone && (
+			<a href={`tel:${phone}`} title={`Call ${name} at ${phone}`}>
+				<Phone />
+				<span class="sr-only">Phone</span>
+			</a>
+		)
+	}
+	{
+		profiles.map(({ network, url }) => (
+			<a href={url} title={`Visit ${name} on ${network}`} target="_blank" rel="noopener noreferrer">
+				<SocialIcon network={network} />
+				<span class="sr-only">{network}</span>
+			</a>
+		))
+	}
+	<CommandPaletteButton />
+</div>
+
+<style>
+	.contact-links {
+		@apply mt-3 flex flex-wrap items-center gap-1;
+	}
+
+	.contact-links a {
+		@apply inline-flex size-8 items-center justify-center rounded-md p-1 text-skin-hue transition-colors duration-200;
+	}
+
+	.contact-links a:hover {
+		@apply bg-skin-button-accent text-skin-inverted;
+	}
+
+	.contact-links :global(svg) {
+		@apply size-5;
+	}
+</style>

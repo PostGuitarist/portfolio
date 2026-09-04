@@ -140,15 +140,7 @@
         "Implemented account data validator that accurately flagged over 500k accounts.",
         "Increased data validator load and running efficiency by over 4x times."
       ],
-      "skills": [
-        "Web Development",
-        "Angular",
-        "Typescript",
-        "C#",
-        "UI Design",
-        "MySQL",
-        "Data Validation"
-      ]
+      "skills": ["Web Development", "Angular", "Typescript", "C#", "UI Design", "MySQL", "Data Validation"]
     }
   ],
   "education": [
@@ -160,10 +152,7 @@
       "startDate": "2021-08-01",
       "endDate": "2025-05-01",
       "score": "3.89",
-      "courses": [
-        "CS101 - Introduction to Computer Science",
-        "CS102 - Data Structures"
-      ]
+      "courses": ["CS101 - Introduction to Computer Science", "CS102 - Data Structures"]
     }
   ],
   "certificates": [
@@ -193,22 +182,12 @@
     {
       "name": "Tailwind",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "CSS Framework",
-        "Responsive Design"
-      ]
+      "keywords": ["Web Development", "Frontend", "CSS Framework", "Responsive Design"]
     },
     {
       "name": "TypeScript",
       "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "Backend",
-        "JavaScript Superset"
-      ]
+      "keywords": ["Web Development", "Frontend", "Backend", "JavaScript Superset"]
     },
     {
       "name": "Node",
@@ -233,13 +212,7 @@
     {
       "name": "Next.js",
       "level": "Beginner",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "React Framework",
-        "SSR",
-        "Static Generation"
-      ]
+      "keywords": ["Web Development", "Frontend", "React Framework", "SSR", "Static Generation"]
     },
     {
       "name": "React",
@@ -258,11 +231,7 @@
       "name": "VSCode to Visual Studio Extension",
       "isActive": true,
       "description": "VSCode extension to create the solution files needed for a Visual Studio C++ project with just source files.",
-      "highlights": [
-        "Built with TypeScript",
-        "VSCode API",
-        "File system operations"
-      ],
+      "highlights": ["Built with TypeScript", "VSCode API", "File system operations"],
       "url": "https://marketplace.visualstudio.com/items?itemName=PostGuitarist.vscode-to-vs",
       "github": "https://github.com/PostGuitarist/vscode-to-vs-extension"
     },
@@ -270,36 +239,21 @@
       "name": "Simple Compiler v2",
       "isActive": true,
       "description": "A simple LLVM compiler for a C-like language, built with C, C++, Yacc, and x86 assembly.",
-      "highlights": [
-        "Built with C, C++, Yacc, and x86 assembly",
-        "LLVM backend",
-        "Custom language syntax",
-        "Made as a part of Liberty University's CSCN 434"
-      ],
+      "highlights": ["Built with C, C++, Yacc, and x86 assembly", "LLVM backend", "Custom language syntax", "Made as a part of Liberty University's CSCN 434"],
       "url": "mailto:me@zadenconnell.com?subject=Portfolio%20Website%20-%20Simple%20Compiler%20v2%20Question"
     },
     {
       "name": "Simple OS v3",
       "isActive": true,
       "description": "A simple operating system kernel built with C and x86 assembly.",
-      "highlights": [
-        "Built with C and x86 assembly",
-        "Custom kernel",
-        "Memory management",
-        "File system support",
-        "Made as a part of Liberty University's CSCN 443"
-      ],
+      "highlights": ["Built with C and x86 assembly", "Custom kernel", "Memory management", "File system support", "Made as a part of Liberty University's CSCN 443"],
       "url": "mailto:me@zadenconnell.com?subject=Portfolio%20Website%20-%20Simple%20OS%20v3%20Question"
     },
     {
       "name": "Multithreaded Game of Life",
       "isActive": true,
       "description": "A multi-threaded implementation of Conway's Game of Life in C++ using pthreads",
-      "highlights": [
-        "Built with C++ and pthreads",
-        "Multithreading",
-        "Game of Life algorithm"
-      ],
+      "highlights": ["Built with C++ and pthreads", "Multithreading", "Game of Life algorithm"],
       "url": "https://github.com/PostGuitarist/multithreaded-gol",
       "github": "https://github.com/PostGuitarist/multithreaded-gol"
     },
@@ -307,11 +261,7 @@
       "name": "LU Computer Science Documentation",
       "isActive": true,
       "description": "Guide to using MacOS devices in Liberty University's computer science classes",
-      "highlights": [
-        "Built with Next.js and Tailwind CSS",
-        "Responsive design",
-        "Dark mode support"
-      ],
+      "highlights": ["Built with Next.js and Tailwind CSS", "Responsive design", "Dark mode support"],
       "url": "https://cs.cameron.rs",
       "github": "https://github.com/PostGuitarist/liberty-macos-docs"
     },
@@ -319,11 +269,7 @@
       "name": "Portfolio Website",
       "isActive": false,
       "description": "My personal portfolio website showcasing my projects, skills, and experience.",
-      "highlights": [
-        "Built with Astro and Tailwind CSS",
-        "Responsive design",
-        "Dark mode support"
-      ],
+      "highlights": ["Built with Astro and Tailwind CSS", "Responsive design", "Dark mode support"],
       "url": "https://zadenconnell.com",
       "github": "https://github.com/PostGuitarist/portfolio"
     }

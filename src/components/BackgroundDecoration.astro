@@ -1,0 +1,67 @@
+---
+/**
+ * Purely decorative page backdrop: a masked dot grid with two soft accent
+ * glows. Fixed rather than absolutely positioned so it stays put while the
+ * résumé scrolls, and hidden entirely when printing.
+ */
+---
+
+<div aria-hidden="true" class="backdrop no-print pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+	<div class="grid-dots"></div>
+	<div class="glow glow-one"></div>
+	<div class="glow glow-two"></div>
+</div>
+
+<style>
+	.grid-dots {
+		position: absolute;
+		inset: 0;
+		background-image: radial-gradient(circle at center, rgba(var(--color-text-base), 0.14) 1px, transparent 1px);
+		background-size: 22px 22px;
+		/* Fade the grid out towards the bottom so it never competes with content. */
+		mask-image: radial-gradient(ellipse 90% 55% at 50% 0%, black 20%, transparent 100%);
+		-webkit-mask-image: radial-gradient(ellipse 90% 55% at 50% 0%, black 20%, transparent 100%);
+	}
+
+	.glow {
+		position: absolute;
+		border-radius: 9999px;
+		filter: blur(120px);
+		will-change: opacity;
+		animation: glow-drift 18s ease-in-out infinite alternate;
+	}
+
+	.glow-one {
+		top: -10rem;
+		left: 6%;
+		width: min(28rem, 60vw);
+		height: min(28rem, 60vw);
+		background: rgba(var(--color), 0.16);
+	}
+
+	.glow-two {
+		top: 40%;
+		right: -8%;
+		width: min(24rem, 55vw);
+		height: min(24rem, 55vw);
+		background: rgba(var(--color-accent-soft), 0.1);
+		animation-delay: -9s;
+	}
+
+	@keyframes glow-drift {
+		from {
+			opacity: 0.7;
+			transform: translate3d(0, 0, 0) scale(1);
+		}
+		to {
+			opacity: 1;
+			transform: translate3d(0, 2rem, 0) scale(1.1);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.glow {
+			animation: none;
+		}
+	}
+</style>

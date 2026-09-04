@@ -1,0 +1,92 @@
+---
+import Check from "@/icons/Check.astro";
+import Mail from "@/icons/Mail.astro";
+
+/**
+ * Copies the email address to the clipboard, replacing the Alpine.js version
+ * that shipped a whole framework from a CDN for this one interaction. Falls
+ * back to a `mailto:` link when the Clipboard API is unavailable (Safari in
+ * non-secure contexts, older browsers), which the previous version did not.
+ */
+interface Props {
+	email: string;
+}
+
+const { email } = Astro.props;
+---
+
+<div class="relative flex items-center">
+	<button type="button" class="copy-email" data-email={email} aria-label={`Copy email address: ${email}`}>
+		<span class="icon icon-idle"><Mail /></span>
+		<span class="icon icon-done"><Check /></span>
+	</button>
+	<span class="toast" role="status" aria-live="polite"></span>
+</div>
+
+<style>
+	.copy-email {
+		@apply inline-flex size-8 cursor-pointer items-center justify-center rounded-md p-1 text-skin-hue transition-colors duration-200;
+	}
+
+	.copy-email:hover {
+		@apply bg-skin-button-accent text-skin-inverted;
+	}
+
+	.icon {
+		@apply flex items-center justify-center transition-[opacity,transform] duration-200;
+	}
+
+	.icon-done {
+		@apply absolute scale-50 text-green-500 opacity-0;
+	}
+
+	.copy-email[data-copied] .icon-idle {
+		@apply scale-50 opacity-0;
+	}
+
+	.copy-email[data-copied] .icon-done {
+		@apply scale-100 opacity-100;
+	}
+
+	.toast {
+		@apply pointer-events-none absolute -top-1 left-0 -translate-y-full rounded bg-green-500 px-2.5 py-1 text-xs font-medium text-white opacity-0 shadow-sm transition-[opacity,transform] duration-200;
+		transform: translateY(-100%) translateY(6px);
+	}
+
+	.toast:not(:empty) {
+		@apply opacity-100;
+		transform: translateY(-100%);
+	}
+</style>
+
+<script>
+	const COPIED_MESSAGE = "Copied!";
+	const RESET_DELAY_MS = 2000;
+
+	for (const button of document.querySelectorAll<HTMLButtonElement>(".copy-email")) {
+		const toast = button.parentElement?.querySelector<HTMLElement>(".toast");
+		let resetTimer: number | undefined;
+
+		button.addEventListener("click", async () => {
+			const email = button.dataset.email;
+			if (!email) return;
+
+			try {
+				await navigator.clipboard.writeText(email);
+			} catch {
+				// No clipboard access — open the user's mail client instead.
+				window.location.href = `mailto:${email}`;
+				return;
+			}
+
+			button.dataset.copied = "";
+			if (toast) toast.textContent = COPIED_MESSAGE;
+
+			window.clearTimeout(resetTimer);
+			resetTimer = window.setTimeout(() => {
+				delete button.dataset.copied;
+				if (toast) toast.textContent = "";
+			}, RESET_DELAY_MS);
+		});
+	}
+</script>

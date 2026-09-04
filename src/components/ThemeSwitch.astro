@@ -1,46 +1,111 @@
 ---
-import Theme from "@/icons/themeSwitch.astro";
+import Monitor from "@/icons/Monitor.astro";
+import Moon from "@/icons/Moon.astro";
+import Sun from "@/icons/Sun.astro";
+
+/**
+ * Segmented control for the colour theme. Built from real radio inputs so it is
+ * keyboard and screen-reader friendly, with the selection driven by the
+ * `data-theme-preference` attribute that the inline script in Layout.astro sets
+ * before first paint — that way the correct segment is highlighted immediately
+ * instead of after hydration.
+ */
+const OPTIONS = [
+	{ value: "system", label: "Match system theme", short: "System", Icon: Monitor },
+	{ value: "light", label: "Light theme", short: "Light", Icon: Sun },
+	{ value: "dark", label: "Dark theme", short: "Dark", Icon: Moon },
+] as const;
 ---
 
-<div class="no-print inline-flex items-center">
-	<div class="group/theme flex items-center gap-2">
-		<label for="themeSwitch" class="flex items-center gap-1 text-sm font-medium leading-6 text-skin-base transition-transform ease-in-out group-hover/theme:rotate-45"> <Theme /></label>
-		<select id="themeSwitch" name="themeSwitch" class="focus:ring-skin-hue ring-skin-muted block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-skin-base ring-1 ring-inset focus:ring-2 sm:text-sm sm:leading-6 bg-skin-fill dark:bg-skin-fill">
-			<option value="system">System</option>
-			<option value="dark">Dark</option>
-			<option value="light">Light</option>
-		</select>
+<fieldset class="theme-switch no-print">
+	<legend class="sr-only">Colour theme</legend>
+	<div class="track">
+		<span class="indicator" aria-hidden="true"></span>
+		{
+			OPTIONS.map(({ value, label, short, Icon }) => (
+				<label class="option" data-value={value} title={label}>
+					<input class="sr-only" type="radio" name="theme-preference" value={value} aria-label={label} />
+					<Icon />
+					<span class="option-label">{short}</span>
+				</label>
+			))
+		}
 	</div>
+</fieldset>
 
-	<style>
-		:global(.dark) {
-			color-scheme: dark;
+<style>
+	.theme-switch {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		width: fit-content;
+	}
+
+	.track {
+		@apply relative flex items-center gap-1 rounded-full border border-skin-border bg-skin-surface/70 p-1 shadow-card backdrop-blur;
+	}
+
+	.indicator {
+		@apply absolute inset-y-1 left-1 rounded-full bg-skin-hue/10;
+		width: calc((100% - 0.5rem) / 3);
+		transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	/* Driven by the pre-paint script so there is no unselected flash. */
+	:global(html[data-theme-preference="light"]) .indicator {
+		transform: translateX(100%);
+	}
+
+	:global(html[data-theme-preference="dark"]) .indicator {
+		transform: translateX(200%);
+	}
+
+	.option {
+		@apply relative z-10 flex flex-1 cursor-pointer select-none items-center justify-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium text-skin-muted transition-colors duration-200;
+	}
+
+	.option:hover {
+		@apply text-skin-base;
+	}
+
+	.option :global(svg) {
+		@apply size-4 shrink-0;
+	}
+
+	.option-label {
+		@apply hidden sm:inline;
+	}
+
+	/* Highlight the active segment, before and after the radios are synced. */
+	.option:has(input:checked),
+	:global(html[data-theme-preference="system"]) .option[data-value="system"],
+	:global(html[data-theme-preference="light"]) .option[data-value="light"],
+	:global(html[data-theme-preference="dark"]) .option[data-value="dark"] {
+		@apply text-skin-hue;
+	}
+
+	/* Keep the focus ring on the label, since the input itself is visually hidden. */
+	.option:has(input:focus-visible) {
+		@apply ring-2 ring-skin-hue ring-offset-2 ring-offset-skin-fill;
+	}
+</style>
+
+<script>
+	import { getStoredPreference, setPreference, type ThemePreference } from "@/lib/theme";
+
+	const inputs = document.querySelectorAll<HTMLInputElement>('input[name="theme-preference"]');
+	if (inputs.length > 0) {
+		const preference = getStoredPreference();
+		document.documentElement.dataset.themePreference = preference;
+
+		for (const input of inputs) {
+			input.checked = input.value === preference;
+			input.addEventListener("change", () => {
+				if (!input.checked) return;
+				const next = input.value as ThemePreference;
+				setPreference(next);
+				document.documentElement.dataset.themePreference = next;
+			});
 		}
-	</style>
-
-	<script>
-		const select = document.getElementById("themeSwitch") as HTMLSelectElement;
-		const theme = localStorage.getItem("theme");
-		const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-
-		if (theme !== null) {
-			select.value = theme;
-		} else {
-			select.value = systemTheme;
-		}
-
-		function updateTheme(value: string) {
-			const theme = value === "system" ? systemTheme : value;
-			document.documentElement.classList.remove("light", "dark");
-			document.documentElement.classList.add(theme);
-			localStorage.setItem("theme", value);
-		}
-
-		updateTheme(select.value);
-
-		select.addEventListener("change", (event: Event) => {
-			const select = event.target as HTMLSelectElement;
-			updateTheme(select.value);
-		});
-	</script>
-</div>
+	}
+</script>

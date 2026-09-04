@@ -1,0 +1,173 @@
+---
+import "hotkeypad/reset.css";
+import "hotkeypad/index.css";
+
+import CommandPaletteButton from "@/components/CommandPaletteButton.astro";
+import { basics } from "@/lib/cv";
+
+/**
+ * ⌘K / Ctrl+K command palette. Commands that depend on `cv.json` are serialised
+ * into a data attribute so the hoisted script can stay a normal module (and keep
+ * importing hotkeypad) rather than being inlined with `define:vars`.
+ */
+interface Props {
+	/** Path to the résumé PDF in `public/`. */
+	resumeUrl?: string;
+}
+
+const { resumeUrl = "/Zaden_Connell_Resume_SWE.pdf" } = Astro.props;
+const { profiles, email } = basics;
+
+const paletteData = {
+	resumeUrl,
+	email,
+	profiles: profiles.map(({ network, url }) => ({ network, url })),
+};
+---
+
+<CommandPaletteButton variant="floating" />
+
+<div id="hotkeypad" data-placeholder="Search commands…" data-palette={JSON.stringify(paletteData)}></div>
+
+<style>
+	#hotkeypad {
+		--hotkeypad-bg-kbd: rgb(var(--muted));
+		--hotkeypad-bg-backdrop: rgb(var(--color-fill));
+		--hotkeypad-bg-container: rgb(var(--color-surface));
+		--hotkeypad-bg-item-hover: rgba(var(--color), 0.12);
+		--hotkeypad-border-container: rgb(var(--color-border));
+		--hotkeypad-border-container-hover: rgb(var(--color));
+		--hotkeypad-fg-muted: rgb(var(--color-text-muted));
+	}
+
+	/* The library renders its backdrop opaque; soften it instead. */
+	#hotkeypad :global([data-backdrop]) {
+		@apply !bg-zinc-900 !opacity-70;
+		backdrop-filter: blur(2px);
+	}
+
+	/*
+	 * HotKeyPad capitalises every word, which mangles labels that contain an
+	 * email address or a name like "PDF". Titles are already written correctly.
+	 */
+	#hotkeypad :global([data-hotkey] p),
+	#hotkeypad :global([data-section] h4) {
+		text-transform: none;
+	}
+
+	#hotkeypad :global([data-section] h4) {
+		@apply text-xs font-semibold uppercase tracking-wide;
+	}
+</style>
+
+<script>
+	import HotKeyPad from "hotkeypad";
+
+	import { MAIL_ICON, RESUME_ICON, SOCIAL_COMMAND_ICONS, THEME_ICON, TOP_ICON } from "@/lib/palette-icons";
+	import { applyPreference, getStoredPreference, resolvePreference, setPreference } from "@/lib/theme";
+
+	interface PaletteData {
+		resumeUrl: string;
+		email?: string;
+		profiles: Array<{ network: string; url: string }>;
+	}
+
+	interface Command {
+		id: string;
+		title: string;
+		section: string;
+		hotkey: string;
+		icon?: string;
+		handler: () => void;
+	}
+
+	/** Hotkeys are palette-scoped, but keep them off the browser's reserved set. */
+	const SOCIAL_HOTKEYS: Record<string, string> = {
+		GitHub: "ctrl+G",
+		LinkedIn: "ctrl+L",
+		X: "ctrl+X",
+	};
+
+	const container = document.getElementById("hotkeypad");
+	if (container) {
+		const data = JSON.parse(container.dataset.palette ?? "{}") as Partial<PaletteData>;
+		const openInNewTab = (url: string) => window.open(url, "_blank", "noopener,noreferrer");
+
+		const commands: Command[] = [
+			{
+				id: "resume",
+				title: "Open resume (PDF)",
+				section: "Actions",
+				hotkey: "ctrl+P",
+				icon: RESUME_ICON,
+				handler: () => openInNewTab(data.resumeUrl ?? "/"),
+			},
+			{
+				id: "toggle-theme",
+				title: "Toggle light / dark theme",
+				section: "Actions",
+				hotkey: "ctrl+B",
+				icon: THEME_ICON,
+				handler: () => {
+					const next = resolvePreference(getStoredPreference()) === "dark" ? "light" : "dark";
+					setPreference(next);
+					document.documentElement.dataset.themePreference = next;
+					document.querySelectorAll<HTMLInputElement>('input[name="theme-preference"]').forEach((input) => {
+						input.checked = input.value === next;
+					});
+				},
+			},
+			{
+				id: "back-to-top",
+				title: "Back to top",
+				section: "Actions",
+				hotkey: "ctrl+U",
+				icon: TOP_ICON,
+				handler: () => window.scrollTo({ top: 0, behavior: "smooth" }),
+			},
+		];
+
+		if (data.email) {
+			const email = data.email;
+			commands.push({
+				id: "copy-email",
+				title: `Copy email (${email})`,
+				section: "Actions",
+				hotkey: "ctrl+E",
+				icon: MAIL_ICON,
+				handler: async () => {
+					try {
+						await navigator.clipboard.writeText(email);
+					} catch {
+						window.location.href = `mailto:${email}`;
+					}
+				},
+			});
+		}
+
+		for (const { network, url } of data.profiles ?? []) {
+			const hotkey = SOCIAL_HOTKEYS[network];
+			// HotKeyPad requires a hotkey per command, so skip networks we have no
+			// free shortcut for rather than letting it throw.
+			if (!hotkey) continue;
+
+			commands.push({
+				id: network,
+				title: `Visit ${network}`,
+				section: "Social",
+				hotkey,
+				icon: SOCIAL_COMMAND_ICONS[network],
+				handler: () => openInNewTab(url),
+			});
+		}
+
+		const hotkeypad = new HotKeyPad();
+		hotkeypad.setCommands(commands);
+
+		// Opened by the ⌘ buttons in the header and on mobile.
+		window.addEventListener("commandpalette:open", () => hotkeypad.open());
+
+		// The palette mirrors the theme, so keep it in sync with system changes.
+		window.addEventListener("hotkeypad:open", () => applyPreference(getStoredPreference()));
+	}
+</script>

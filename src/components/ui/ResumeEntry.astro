@@ -1,0 +1,51 @@
+---
+/**
+ * A single line item in a résumé list: institution/certificate name, a
+ * subtitle, and a right-aligned date. Education and Certificates rendered
+ * near-identical markup twice; this is that markup, once.
+ */
+interface Props {
+	title: string;
+	subtitle?: string;
+	meta?: string;
+	url?: string;
+}
+
+const { title, subtitle, meta, url } = Astro.props;
+---
+
+<li class="flex items-baseline gap-2">
+	<span class="icon no-print" aria-hidden="true">
+		<slot name="icon" />
+	</span>
+
+	<div class="relative w-full">
+		<h3 class="mr-6 font-medium">
+			{
+				url ? (
+					<a class="entry-link" href={url} target="_blank" rel="noopener noreferrer">
+						{title}
+					</a>
+				) : (
+					title
+				)
+			}
+		</h3>
+		{subtitle && <p class="text-sm">{subtitle}</p>}
+		{meta && <time class="right-0 top-0 text-xs text-skin-muted md:absolute md:block">{meta}</time>}
+	</div>
+</li>
+
+<style>
+	.icon {
+		@apply hidden shrink-0 self-start text-skin-hue md:inline-block;
+	}
+
+	.icon :global(svg) {
+		@apply size-5;
+	}
+
+	.entry-link {
+		@apply decoration-dotted underline-offset-4 transition-colors duration-200 hover:text-skin-hue hover:underline;
+	}
+</style>
