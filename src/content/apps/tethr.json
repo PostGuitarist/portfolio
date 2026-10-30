@@ -2,6 +2,5 @@
   "name": "Tethr",
   "tagline": "Screen Time partner.",
   "description": "Set a daily limit on the apps that count. If you pass it, open a blocked app, or ask for a nudge, the friends you trust hear about it, and they can react or reply in the app.",
-  "icon": "/apps/tethr.png",
-  "draft": true
+  "icon": "/apps/tethr.png"
 }
