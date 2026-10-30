@@ -1,0 +1,7 @@
+{
+  "name": "TrueLean",
+  "tagline": "Motorcycle lean angle & rides.",
+  "description": "TrueLean measures your motorcycle's real lean angle through every corner by fusing your iPhone's motion sensors with GPS. Live cluster, lean-colored route maps, g-force, 0–60 timing, and GPX/CSV export. Your ride data stays on your device and in your own private iCloud.",
+  "icon": "/apps/truelean.png",
+  "supportEmail": "support@truelean.app"
+}
