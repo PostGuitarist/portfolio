@@ -1,0 +1,50 @@
+---
+import AppsLayout from "@/layouts/AppsLayout.astro";
+import Section from "@/components/Section.astro";
+import AppIcon from "@/components/apps/AppIcon.astro";
+import BackLink from "@/components/apps/BackLink.astro";
+import Arrow from "@/icons/Arrow.astro";
+import { getApps } from "@/lib/apps";
+import { basics } from "@cv";
+
+export const prerender = true;
+
+const apps = await getApps();
+const { name } = basics;
+---
+
+<AppsLayout title={`Apps - ${name}`} description={`iOS apps by ${name}, with their support, privacy, and legal information.`}>
+	<div slot="aside" class="flex flex-col gap-8">
+		<BackLink href="/">Portfolio</BackLink>
+		<div class="flex flex-col gap-1">
+			<h1 class="text-4xl font-bold">Apps</h1>
+			<h2 class="text-balance text-base text-skin-muted">Support, privacy, and legal information for apps by {name}.</h2>
+		</div>
+	</div>
+
+	<Section title="All Apps">
+		{
+			apps.length === 0 ? (
+				<p>No apps published yet. Check back soon.</p>
+			) : (
+				<div class="grid grid-cols-1 gap-3 md:grid-cols-2">
+					{apps.map(({ id, data }) => (
+						<a href={`/apps/${id}`} class="group relative flex items-center gap-4 rounded-md bg-skin-button-muted/50 p-5 shadow-sm ring-1 ring-skin-muted transition hover:ring-skin-hue">
+							<AppIcon name={data.name} icon={data.icon} size="sm" />
+							<div class="flex min-w-0 flex-col gap-1">
+								<span class="flex items-center gap-[6px] text-lg text-skin-base decoration-dotted underline-offset-[5px] group-hover:text-skin-hue group-hover:underline">
+									{data.name}
+									{data.draft && <span class="rounded bg-skin-button-accent px-1.5 text-xs text-skin-inverted">Draft</span>}
+									<span class="text-skin-hue transition ease-linear group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
+										<Arrow />
+									</span>
+								</span>
+								<p>{data.tagline}</p>
+							</div>
+						</a>
+					))}
+				</div>
+			)
+		}
+	</Section>
+</AppsLayout>
