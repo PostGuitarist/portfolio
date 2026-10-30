@@ -1,0 +1,15 @@
+---
+import AppSupport from "@/components/apps/AppSupport.astro";
+import { getApps } from "@/lib/apps";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+	const apps = await getApps();
+	return apps.map((app) => ({ params: { app: app.id }, props: { app } }));
+}
+
+const { app } = Astro.props;
+---
+
+<AppSupport app={app} />
