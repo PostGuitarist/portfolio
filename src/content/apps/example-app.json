@@ -1,0 +1,7 @@
+{
+  "name": "Example App",
+  "tagline": "A short one-liner about what the app does.",
+  "description": "A longer description of the app. Copy this file to src/content/apps/<your-app-slug>.json to add a new app. This example is a draft, so it only shows up when running locally.",
+  "supportEmail": "me@zadenconnell.com",
+  "draft": true
+}

@@ -1,0 +1,32 @@
+---
+import AppIcon from "@/components/apps/AppIcon.astro";
+import BackLink from "@/components/apps/BackLink.astro";
+import Arrow from "@/icons/Arrow.astro";
+import type { App } from "@/lib/apps";
+
+interface Props {
+	app: App;
+}
+
+const { app } = Astro.props;
+const { name, tagline, icon, appStoreUrl } = app.data;
+---
+
+<div class="flex flex-col gap-8">
+	<BackLink href="/apps">All apps</BackLink>
+	<AppIcon name={name} icon={icon} />
+	<div class="flex flex-col gap-1">
+		<h1 class="text-4xl font-bold">{name}</h1>
+		<h2 class="text-balance text-base text-skin-muted">{tagline}</h2>
+		{
+			appStoreUrl && (
+				<a href={appStoreUrl} target="_blank" rel="noopener noreferrer" class="group mt-3 inline-flex w-fit items-center gap-1 rounded-md bg-skin-button-accent px-3 py-1.5 text-sm text-skin-inverted transition hover:bg-skin-button-accent-hover">
+					View on the App Store
+					<span class="transition ease-linear group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
+						<Arrow />
+					</span>
+				</a>
+			)
+		}
+	</div>
+</div>
