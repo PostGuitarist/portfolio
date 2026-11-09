@@ -1,7 +1,7 @@
 ---
 title: "Privacy Policy"
 description: "What TrueLean accesses, where your ride data goes, and the optional usage data you control."
-lastUpdated: 2026-09-03
+lastUpdated: 2026-11-06
 order: 1
 ---
 
@@ -23,6 +23,8 @@ that on yourself - see "Optional usage data" below.
 - **Motion sensors (gyroscope, accelerometer).** Used to measure your
   motorcycle's lean angle and g-forces. Motion data is processed on your device
   in real time.
+- **Barometer (Motion & Fitness).** Used during a ride to measure elevation
+  gain. Barometer data is processed on your device and is not shared.
 - **Place name and weather (after a ride, not during one).** When you open a
   finished ride, the app looks up where it started and how warm it was. That is
   the only time TrueLean sends anything about a ride off your device - see
@@ -36,11 +38,15 @@ that on yourself - see "Optional usage data" below.
   up to and synced through **your own private iCloud** so they survive a lost or
   replaced phone and appear on your other devices. This uses Apple's iCloud under
   your Apple Account and is governed by Apple's privacy policy; Zaden Connell operates
-  no servers and cannot see this data. You can turn sync off in Settings → iCloud
-  Sync, after which rides stay only on the device.
+  no servers and cannot see this data. You can turn sync off in Settings → Data &
+  Privacy → iCloud Sync, after which rides stay only on the device.
 - Optional raw sensor logs (off by default) are saved as files on your device,
   are not synced to iCloud, and are never uploaded anywhere unless you choose to
   export and share them.
+- During a ride, its live lean, speed and time can appear on your Lock Screen
+  and in the Dynamic Island, and your last ride and personal bests in Home
+  Screen widgets you add. These are drawn on your device from data that stays
+  on it; you can turn Live Activities off in iOS Settings or remove the widgets.
 
 ## What we collect
 
@@ -170,8 +176,8 @@ Because Zaden Connell never receives your data, you have full control over it:
 - Delete any ride, or all rides, from within the app (Settings → Data & Privacy
   → Delete All Rides). With iCloud sync on, deletions remove the rides from
   your iCloud too.
-- Turn iCloud sync off at any time (Settings → iCloud Sync) to keep rides only
-  on the device.
+- Turn iCloud sync off at any time (Settings → Data & Privacy → iCloud Sync) to
+  keep rides only on the device.
 - Raw sensor logs can be deleted individually in the app.
 - Turn optional usage sharing off, or delete everything it has ever sent, in
   Settings → Data & Privacy → Help Improve TrueLean.
