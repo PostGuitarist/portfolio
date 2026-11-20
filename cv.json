@@ -40,7 +40,23 @@
       "location": "Boone, North Carolina",
       "url": "https://www.samaritanspurse.org",
       "startDate": "2025-07-22",
-      "endDate": null
+      "endDate": null,
+      "summary": "Full-stack engineer on an internal CRM platform supporting Samaritan's Purse's ministry operations: .NET 8 backend, Angular apps and a shared design system.",
+      "responsibilities": [
+        "Led the Angular 19 to 21 upgrade, then migrated the web app to a shared design system.",
+        "Built a scripted, AI-assisted pipeline that ported dozens of components into the shared design system in 13 batches.",
+        "Built Stripe ACH payments end to end: refunds, settlement and reusable-token charging across backend and UI.",
+        "Built an LLM-powered summarization feature with output validation and an automatic repair retry."
+      ],
+      "skills": [
+        "C#",
+        ".NET 8",
+        "Angular",
+        "TypeScript",
+        "MySQL",
+        "Stripe API",
+        "System Design"
+      ]
     },
     {
       "name": "SwiftSeg",
