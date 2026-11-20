@@ -44,35 +44,33 @@
     },
     {
       "name": "SwiftSeg",
-      "position": "Co-Founder & Lead Developer",
+      "position": "Founder & Lead Engineer",
       "location_type": "Remote",
       "location": "Remote",
       "url": "https://www.swiftseg.com",
       "startDate": "2024-06-01",
       "endDate": null,
-      "summary": "Developed scalable web applications, integrated Supabase, and improved team efficiency at SwiftSeg.",
+      "summary": "Solo founder. Took Selantia, a multi-tenant SaaS for cost segregation firms, from empty repo to a live pilot with 3 firms in under 7 months.",
       "responsibilities": [
-        "Developed and maintained scalable, responsive web applications using Next.js, enhancing user experience and reducing page load times by 40%.",
-        "Integrated Supabase as a backend and database solution for real-time data management, authentication, and storage, streamlining development.",
-        "Contributed to Agile Kanban workflows, improving team efficiency and workflow through effective communication."
+        "Architected and shipped a ~89k-line TypeScript codebase: 36-table data model, 142 server actions, 37 pages and 16 transactional email templates.",
+        "Built a depreciation engine verified against 9,134 cells of IRS Publication 946 tables.",
+        "Designed database-enforced multi-tenant isolation, backed by a test gate that fails the build if any data-access function lacks an isolation probe.",
+        "Implemented tiered staff permissions, audited impersonation and an append-only audit trail.",
+        "Owned billing end to end: subscriptions, seat limits and metered usage.",
+        "Shipped TrueLean and Ebbline to the App Store; Hudson (macOS) in pre-release."
       ],
       "achievements": [
-        "Developed a web application from scratch that increased user engagement by 30%.",
-        "Reduced page load times by 40% through performance optimization.",
-        "Integrated Supabase as a backend and database solution, streamlining development."
+        "Live pilot with 3 firms within 7 months of first commit.",
+        "85 test files (~660 cases) and 28 design docs across the platform.",
+        "Two iOS apps live on the App Store."
       ],
       "skills": [
-        "Web Development",
-        "Next.js",
-        "Supabase",
-        "Agile Development",
-        "Communication",
-        "Performance Optimization",
-        "User Experience",
-        "Scalability",
-        "Real-time Data Management",
-        "Authentication",
-        "Team Efficiency"
+        "TypeScript",
+        "SaaS Architecture",
+        "Multi-tenant Systems",
+        "System Design",
+        "Full-Stack Development",
+        "Mobile Development"
       ]
     },
     {
