@@ -1,11 +1,11 @@
 {
   "basics": {
     "name": "Zaden Connell",
-    "label": "Software Developer @ Samaritan's Purse",
+    "label": "Founder @ SwiftSeg · Software Developer @ Samaritan's Purse",
     "image": "/me_avatar.png",
     "email": "me@zadenconnell.com",
     "url": "https://zadenconnell.com",
-    "summary": "Software Developer @ Samaritan's Purse | Co-Founder @ SwiftSeg",
+    "summary": "Software Developer @ Samaritan's Purse | Founder @ SwiftSeg",
     "theme": "default",
     "location": {
       "address": "",
@@ -40,7 +40,23 @@
       "location": "Boone, North Carolina",
       "url": "https://www.samaritanspurse.org",
       "startDate": "2025-07-22",
-      "endDate": null
+      "endDate": null,
+      "summary": "Full-stack engineer on an internal CRM platform supporting Samaritan's Purse's ministry operations: .NET 8 backend, Angular apps and a shared design system.",
+      "responsibilities": [
+        "Led the Angular 19 to 21 upgrade, then migrated the web app to a shared design system.",
+        "Took a lead role on the shared component library after it launched: built the AI-assisted tooling that ported dozens of existing components into it, and authored key architecture decisions.",
+        "Built Stripe ACH payments end to end: refunds, settlement and reusable-token charging across backend and UI.",
+        "Built an LLM-powered summarization feature with output validation and an automatic repair retry."
+      ],
+      "skills": [
+        "C#",
+        ".NET 8",
+        "Angular",
+        "TypeScript",
+        "MySQL",
+        "Stripe API",
+        "System Design"
+      ]
     },
     {
       "name": "SwiftSeg",
