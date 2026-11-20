@@ -44,7 +44,7 @@
       "summary": "Full-stack engineer on an internal CRM platform supporting Samaritan's Purse's ministry operations: .NET 8 backend, Angular apps and a shared design system.",
       "responsibilities": [
         "Led the Angular 19 to 21 upgrade, then migrated the web app to a shared design system.",
-        "Built a scripted, AI-assisted pipeline that ported dozens of components into the shared design system in 13 batches.",
+        "Took a lead role on the shared component library after it launched: built the AI-assisted tooling that ported dozens of existing components into it, and authored key architecture decisions.",
         "Built Stripe ACH payments end to end: refunds, settlement and reusable-token charging across backend and UI.",
         "Built an LLM-powered summarization feature with output validation and an automatic repair retry."
       ],
